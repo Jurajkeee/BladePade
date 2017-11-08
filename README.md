@@ -1,4 +1,4 @@
-BladePad
+BladePade
 
 Genre: Runner, platformer, strategy shooter, arcade, action.
 
