@@ -1,4 +1,4 @@
-BladePade
+#BladePade#
 
 
 Genre: Runner, platformer, strategy shooter, arcade, action.
@@ -21,5 +21,5 @@ Gameplay:
 7.	Invisible hitting areas.
 
 Setting:  Like in Ori and Rayman.
-[create an anchor](#anchors-in-markdown)
+
 
