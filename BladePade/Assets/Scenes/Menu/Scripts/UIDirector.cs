@@ -9,7 +9,7 @@ public class UIDirector : MonoBehaviour {
     //In Level Menu
     public Image chooseLevels,chooseChapters,backToChapters,toMainMenu;
 
-    public Button button;
+    public Button buttonToChapter1;
 
 	void Start () {
 
@@ -34,8 +34,8 @@ public class UIDirector : MonoBehaviour {
         backToChapters.enabled = false;
         toMainMenu.enabled = false;
 
-        button = button.GetComponent<Button>();
-        button.enabled = false;
+        buttonToChapter1 = buttonToChapter1.GetComponent<Button>();
+        buttonToChapter1.enabled = false;
 
 	}
     public void ToShop()
@@ -58,7 +58,7 @@ public class UIDirector : MonoBehaviour {
     {
         mainMenu.enabled = false;
         levelMenu.enabled = true;
-        button.enabled = true;//Need To Chamge
+        buttonToChapter1.enabled = true;
 
         chooseLevels.enabled = false;
         chooseChapters.enabled = true;
@@ -71,15 +71,13 @@ public class UIDirector : MonoBehaviour {
     {
         chooseChapters.enabled = false;
         chooseLevels.enabled = true;
-        button.enabled = false;//Need To Change
+        buttonToChapter1.enabled = false;
 
         //Міняємо кнопу закриття вибору рівнів на кнопку закриття цілого меню
 
         backToChapters.enabled = true;
         toMainMenu.enabled = false;
     }
-
-
 
 
 }
