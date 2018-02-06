@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<languages>
+    //___________________________English___________________________
+    <English>
+        
+         <string name="skins">Skins</string>
+         <string name="weapons">Weapons</string>
+         <string name="buy">Buy</string>
+         <string name="gold">Gold</string>
+         <string name="crystals">Crystals</string>    
+        
+    </English>
+    //___________________________Russian__________________________
+    <Russian>
+        
+         <string name="skins">Скины</string>
+         <string name="weapons">Оружие</string>
+         <string name="buy">Купить</string>
+         <string name="gold">Золото</string>
+         <string name="crystals">Кристалы</string> 
+        
+    </Russian>
+    //___________________________Chinese___________________________
+    <Chinese>
+         <string name="skins"></string>
+         <string name="weapons"></string>
+         <string name="buy"></string>
+         <string name="gold"></string>
+         <string name="crystals"></string>
+    </Chinese>
+</languages>

@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 public class UIDirector : MonoBehaviour {
-
+    //Main Menu
     public Canvas mainMenu,shopMenu,donationShopMenu,levelMenu;
-
     //In Level Menu
-    public Image chooseLevels,chooseChapters,backToChapters,toMainMenu;
-
+    public Image chooseLevels,chooseChapters;
     public Button buttonToChapter1;
+    //Savings Methods
+    public delegate void LastMethod();
+    LastMethod lastMethod;
 
 	void Start () {
 
@@ -27,12 +28,8 @@ public class UIDirector : MonoBehaviour {
         chooseLevels = chooseLevels.GetComponent<Image>();
 
         chooseLevels.enabled = false;
+        chooseChapters.enabled = false;
 
-        backToChapters = backToChapters.GetComponent<Image>();
-        toMainMenu = toMainMenu.GetComponent<Image>();
-
-        backToChapters.enabled = false;
-        toMainMenu.enabled = false;
 
         buttonToChapter1 = buttonToChapter1.GetComponent<Button>();
         buttonToChapter1.enabled = false;
@@ -40,44 +37,40 @@ public class UIDirector : MonoBehaviour {
 	}
     public void ToShop()
     {
-        mainMenu.enabled = false;
-        shopMenu.enabled = true;
+        mainMenu.enabled = !mainMenu.enabled;
+        shopMenu.enabled = !shopMenu.enabled;
+        lastMethod = ToShop;
     }
-    public void ToMainMenu()
-    {
-        shopMenu.enabled = false;
-        mainMenu.enabled = true;
-        donationShopMenu.enabled = false;
-    }
+
     public void ToDonationShop()
     {
-        mainMenu.enabled = false;
-        donationShopMenu.enabled = true;
+        mainMenu.enabled = !mainMenu.enabled;
+        donationShopMenu.enabled = !donationShopMenu.enabled;
+        lastMethod = ToDonationShop;
+
+    }
+    public void Close()
+    {
+        lastMethod();
+        if (lastMethod == ChooseLevels) lastMethod = ToLevelMenu;else lastMethod = null;
     }
     public void ToLevelMenu()
     {
-        mainMenu.enabled = false;
-        levelMenu.enabled = true;
-        buttonToChapter1.enabled = true;
+        mainMenu.enabled = !mainMenu.enabled;
+        levelMenu.enabled = !levelMenu.enabled;
+        buttonToChapter1.enabled = !buttonToChapter1.enabled;
 
         chooseLevels.enabled = false;
-        chooseChapters.enabled = true;
+        chooseChapters.enabled = !chooseChapters.enabled;
+        lastMethod = ToLevelMenu;
 
-        //Міняємо кнопку закриття цілого меню на кнопку закриття вибору рівнів
-        toMainMenu.enabled = true;
-        backToChapters.enabled = false;
     }
     public void ChooseLevels()
     {
-        chooseChapters.enabled = false;
-        chooseLevels.enabled = true;
-        buttonToChapter1.enabled = false;
-
-        //Міняємо кнопу закриття вибору рівнів на кнопку закриття цілого меню
-
-        backToChapters.enabled = true;
-        toMainMenu.enabled = false;
+        chooseChapters.enabled = !chooseChapters.enabled;
+        chooseLevels.enabled = !chooseLevels.enabled;
+        buttonToChapter1.enabled = !buttonToChapter1.enabled;
+        lastMethod = ChooseLevels;
     }
-
 
 }
