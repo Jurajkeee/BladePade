@@ -7,7 +7,19 @@
          <string name="weapons">Weapons</string>
          <string name="buy">Buy</string>
          <string name="gold">Gold</string>
-         <string name="crystals">Crystals</string>    
+         <string name="crystals">Crystals</string>
+         <string name="language">Language</string>         
+        <string name="graphics">Graphics</string>  
+        <string name="low">Low</string>  
+        <string name="mid">Mid</string>  
+        <string name="high">High</string>  
+        <string name="cancel">Cancel</string>  
+        <string name="confirm">Confirm</string>  
+        <string name="music">Music</string>  
+        <string name="sounds">Sounds</string>  
+        <string name="settings">Settings</string>  
+        
+        
         
     </English>
     //___________________________Russian__________________________
@@ -18,6 +30,16 @@
          <string name="buy">Купить</string>
          <string name="gold">Золото</string>
          <string name="crystals">Кристалы</string> 
+        <string name="language">Язык</string>           
+        <string name="graphics">Графика</string>  
+        <string name="low">Низ</string>  
+        <string name="mid">Сред</string>  
+        <string name="high">Выск</string>  
+        <string name="cancel">Отменить</string>  
+        <string name="confirm">Применить</string>  
+        <string name="music">Музыка</string>  
+        <string name="sounds">Звуки</string>  
+        <string name="settings">Настройки</string> 
         
     </Russian>
     //___________________________Chinese___________________________
@@ -27,5 +49,15 @@
          <string name="buy"></string>
          <string name="gold"></string>
          <string name="crystals"></string>
+        <string name="language"></string>   
+        <string name="graphics"></string>  
+        <string name="low"></string>  
+        <string name="mid"></string>  
+        <string name="high"></string>  
+        <string name="cancel"></string>  
+        <string name="confirm"></string>  
+        <string name="music"></string>  
+        <string name="sounds"></string>  
+        <string name="settings"></string> 
     </Chinese>
 </languages>

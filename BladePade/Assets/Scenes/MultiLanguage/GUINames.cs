@@ -8,10 +8,12 @@ using UnityEngine.UI;
 public class GUINames : MonoBehaviour
 {
 
-    private Lang langClass;
+    public Lang langClass;
     public string currentLang;
 
-    public Text skinsT, weaponsT, buyT, buyT2 , goldT, crystalsT;
+    public Text skinsT, weaponsT, buyT, buyT2 , goldT, crystalsT, languageT,
+                graphicsT, cancelT, confirmT, musicT, 
+                soundsT,settingsT;
 
     private void Start()
     {
@@ -23,6 +25,14 @@ public class GUINames : MonoBehaviour
         goldT.GetComponent<Text>().text = langClass.GetString("gold");
         crystalsT.GetComponent<Text>().text = langClass.GetString("crystals");
         buyT2.GetComponent<Text>().text=langClass.GetString("buy");
+        languageT.GetComponent<Text>().text = langClass.GetString("language");
+        graphicsT.GetComponent<Text>().text = langClass.GetString("graphics");
+        cancelT.GetComponent<Text>().text = langClass.GetString("cancel");
+        confirmT.GetComponent<Text>().text = langClass.GetString("confirm");
+        musicT.GetComponent<Text>().text = langClass.GetString("music");
+        soundsT.GetComponent<Text>().text = langClass.GetString("sounds");
+        settingsT.GetComponent<Text>().text = langClass.GetString("settings");
+
 
     }
 
