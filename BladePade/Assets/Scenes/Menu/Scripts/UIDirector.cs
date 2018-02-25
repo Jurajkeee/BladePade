@@ -11,19 +11,30 @@ public class UIDirector : MonoBehaviour {
 
     public Image chooseLevels,chooseChapters;
     public Button buttonToChapter1;
+    public GameObject levelsListC1;
+  
 
     //Savings Methods
 
     public delegate void LastMethod();
     LastMethod lastMethod;
 
-    //Settings Buttons
 
-    public bool sounds,music;
-    public int graphicsQual;
-    public Image soundsButton,musicButton;
-    public Text soundsIndicator,musicIndicator,graphicalIndicator;
+    //Cancel and Confirm in Setting menu
+    public bool sounds,music;//DElete when music
+    private bool tempSounds, tempMusic;
+    public int graphicQuality;//delete when qual
+    private int tempGraphicsQual;
+    private string tempLang;
+
+    public string OnOffMusic, OnOffSounds;
+    public Vector3 musicGOTemp, soundGOTemp;
+
+    // Setting Buttons
+    public Image soundsButton,musicButton,settingsButton;
+    public Text soundsIndicator,musicIndicator;
     public Slider graphicsSlider;
+
 
     //Language List
 
@@ -57,6 +68,8 @@ public class UIDirector : MonoBehaviour {
         chooseChapters.enabled = false;
 
 
+
+
         buttonToChapter1 = buttonToChapter1.GetComponent<Button>();
         buttonToChapter1.enabled = false;
         // Settings 
@@ -65,14 +78,16 @@ public class UIDirector : MonoBehaviour {
         musicButton = musicButton.GetComponent<Image>();
         musicIndicator = musicIndicator.GetComponent<Text>();
         graphicsSlider = graphicsSlider.GetComponent<Slider>();
-        graphicalIndicator = graphicalIndicator.GetComponent<Text>();
+
+
+        settingsButton = settingsButton.GetComponent<Image>();
 
         //Language
 
         list = list.GetComponent<Image>();
         hiddenList = hiddenList.GetComponent<Image>();
 
-        currentLangOnList = currentLangOnList.GetComponent<Text>();
+
 
         list.enabled = false;
 
@@ -82,22 +97,20 @@ public class UIDirector : MonoBehaviour {
         chineseActive.SetActive(false);
 
 
-
-        //
-        activeLang = englishActive;
-
-
 	}
     //MENU
     public void ToShop()
     {
+        settingsButton.enabled = !settingsButton.enabled;
         mainMenu.enabled = !mainMenu.enabled;
         shopMenu.enabled = !shopMenu.enabled;
         lastMethod = ToShop;
+
     }
 
     public void ToDonationShop()
     {
+        settingsButton.enabled = !settingsButton.enabled;
         mainMenu.enabled = !mainMenu.enabled;
         donationShopMenu.enabled = !donationShopMenu.enabled;
         lastMethod = ToDonationShop;
@@ -110,64 +123,79 @@ public class UIDirector : MonoBehaviour {
     }
     public void ToLevelMenu()
     {
+        settingsButton.enabled = !settingsButton.enabled;
         mainMenu.enabled = !mainMenu.enabled;
         levelMenu.enabled = !levelMenu.enabled;
         buttonToChapter1.enabled = !buttonToChapter1.enabled;
 
+        levelsListC1.SetActive(false);
         chooseLevels.enabled = false;
+
+
         chooseChapters.enabled = !chooseChapters.enabled;
         lastMethod = ToLevelMenu;
 
     }
     public void ChooseLevels()
-    {
+    {       
         chooseChapters.enabled = !chooseChapters.enabled;
         chooseLevels.enabled = !chooseLevels.enabled;
         buttonToChapter1.enabled = !buttonToChapter1.enabled;
         lastMethod = ChooseLevels;
+        levelsListC1.SetActive(!levelsListC1.activeSelf);
     }
     public void Settings()
     {
+        settingsButton.enabled = !settingsButton.enabled;
         currentLangOnList.text = guiNames.currentLang;
         settingsMenu.enabled = !settingsMenu.enabled;
+
         lastMethod = Settings;
+
+        musicGOTemp = musicButton.transform.position;
+        soundGOTemp = soundsButton.transform.position;
+
+        OnOffMusic = musicIndicator.text;
+        OnOffSounds = soundsIndicator.text;
+
+        tempGraphicsQual = graphicQuality;//Save begin value
+        tempLang = guiNames.currentLang;
+
+
     }
     //Settings Buttons
     public void Sounds()
     {
-        if(!sounds){
+        if(!tempSounds){
             soundsButton.transform.position += new Vector3(soundsButton.rectTransform.rect.width,0,0);
-            sounds = !sounds;
+            tempSounds = !tempSounds;
             soundsIndicator.text = "On";
         }else{
             soundsButton.transform.position -= new Vector3(soundsButton.rectTransform.rect.width, 0, 0);
-            sounds = !sounds;
+            tempSounds = !tempSounds;
             soundsIndicator.text = "Off";
         }
     }
     public void Music()
     {
-        if (!music)
+        if (!tempMusic)
         {
             musicButton.transform.position += new Vector3(musicButton.rectTransform.rect.width, 0, 0);
-            music = !music;
+            tempMusic = !tempMusic;
             musicIndicator.text = "On";
         }
         else
         {
             musicButton.transform.position -= new Vector3(musicButton.rectTransform.rect.width, 0, 0);
-            music = !music;
+            tempMusic = !tempMusic;
             musicIndicator.text = "Off";
         }
     }
     public void GraphicsQuality()
     {
-        switch(graphicsSlider.value.ToString())
-        {
-            case"0":graphicsQual = 0;graphicalIndicator.text = guiNames.langClass.GetString("low");break; //GUINames - access to dictionary
-            case"1":graphicsQual = 1;graphicalIndicator.text = guiNames.langClass.GetString("mid");break;
-            case"2":graphicsQual = 2;graphicalIndicator.text = guiNames.langClass.GetString("high");break;
-        }
+        guiNames.UpdateGraphicSlider();
+        graphicQuality = (int)graphicsSlider.value;
+
     }
     public void LanguageList()
     {
@@ -183,28 +211,28 @@ public class UIDirector : MonoBehaviour {
         
         activeLang = englishActive;
         ChangeActiveLang(activeLang);
-
         currentLangOnList.text = "English";
-        guiNames.currentLang = currentLangOnList.text;
+
     }
     public void Russian(){
         activeLang = russianActive;
         ChangeActiveLang(activeLang);
         currentLangOnList.text = "Russian";
-        guiNames.currentLang = currentLangOnList.text;
+
     }
     public void German(){
         activeLang = germanActive;
         ChangeActiveLang(activeLang);
         currentLangOnList.text = "German";
-        guiNames.currentLang = currentLangOnList.text;
+
     }
     public void Chinese(){
         activeLang = chineseActive;
         ChangeActiveLang(activeLang);
         currentLangOnList.text = "Chinese";
-        guiNames.currentLang = currentLangOnList.text;
+
     }
+
     public void ChangeActiveLang(GameObject activeLang)
     {
         
@@ -213,6 +241,64 @@ public class UIDirector : MonoBehaviour {
         chineseActive.GetComponent<Image>().enabled = false;
         germanActive.GetComponent<Image>().enabled = false;
         activeLang.GetComponent<Image>().enabled = true;
+    }
+
+    public void ConfirmPressed()
+    {
+        //Changing curentlanguage on in use
+        guiNames.currentLang = currentLangOnList.text;
+        guiNames.UpdateLanguage();
+
+        //Closing Setting window
+        Close();
+
+        //Close language list if opened
+        list.enabled = false;
+        englishActive.SetActive(false);
+        russianActive.SetActive(false);
+        germanActive.SetActive(false);
+        chineseActive.SetActive(false);
+
+        //Saving values on opened
+        music = tempMusic;
+        sounds = tempSounds;
+
+        graphicQuality = (int)graphicsSlider.value;
+    }
+
+    public void Cancel() //Return all values back
+    {      
+        //Changing values in setting menu to start
+        graphicsSlider.value = tempGraphicsQual;
+        musicButton.transform.position = musicGOTemp;
+        soundsButton.transform.position = soundGOTemp;
+
+        musicIndicator.text = OnOffMusic;
+        soundsIndicator.text = OnOffSounds;
+
+        //changing active lang
+        switch(tempLang)
+        {
+            case "Chinese":Chinese();break;
+            case "English":English();break;
+            case "German":German();break;
+            case "Russian":Russian();break;
+        }
+        //diasbling lang list if opened
+        list.enabled = false;
+        englishActive.SetActive(false);
+        russianActive.SetActive(false);
+        germanActive.SetActive(false);
+        chineseActive.SetActive(false);
+
+        //deactivating temps
+        tempMusic = music;
+        tempSounds = sounds;
+
+        Close();
+    }
+    public void SubChapterButton(){
+        
     }
 
 
