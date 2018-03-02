@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 public class UIDirector : MonoBehaviour
 {
-    [Header("Main Menu")]
+
     #region "Window Director Vars"
     //Main Menu
-    
+    [Header("Main Menu")]
     public Canvas mainMenu;
     public Canvas shopMenu, donationShopMenu, levelMenu, settingsMenu;
 
@@ -17,12 +17,12 @@ public class UIDirector : MonoBehaviour
     public delegate void LastMethod();
 
     LastMethod lastMethod;
+     #endregion
     #endregion
-    #endregion
-    [Space(20)][Header("Map Menu")]
     #region "Map Window Vars"
     //In Level Menu
     
+    [Header("Map Menu")]
     public Image chooseLevels;
     public Image chooseChapters;
     public Button buttonToChapter1;
@@ -33,13 +33,14 @@ public class UIDirector : MonoBehaviour
     public LevelButtonScript[] level;
     public int ToLevelID = 12;
     public Image playButton;
-    #endregion
+     #endregion
 
     #endregion   
-    [Space(20)][Header("Settings Menu")]
     #region "Settings Window Vars"
-    
+
     //Cancel and Confirm in Setting menu
+    
+    [Header("Settings Menu")]
     public bool sounds;
     public bool music;//DElete when music
     private bool tempSounds, tempMusic;
@@ -55,9 +56,9 @@ public class UIDirector : MonoBehaviour
     public Text soundsIndicator, musicIndicator;
     public Slider graphicsSlider;
 
-    #region "Language List Vars"
-    [Header("Languages List")]
+     #region "Language List Vars"
 
+    [Header("Languages List")]
     public GameObject englishActive;
     public GameObject russianActive, germanActive, chineseActive, activeLang;
     public Image list, hiddenList;
@@ -95,12 +96,9 @@ public class UIDirector : MonoBehaviour
         buttonToChapter1 = buttonToChapter1.GetComponent<Button>();
         buttonToChapter1.enabled = false;
 
-        
+
         #region "LevelsWindow"
-        for (int i =0; i<level.Length; i++)
-        {           
-            level[i].UpdateStats();
-        }
+        UpdateLevelsStats();
         #endregion
 
         #endregion
@@ -208,6 +206,7 @@ public class UIDirector : MonoBehaviour
         lastMethod = LevelsList;
         levelsListMenu.SetActive(!levelsListMenu.activeSelf);
         ToLevelID = 20;
+        UpdateLevelsStats();
     }
     public void PlayButton()
     {
@@ -217,6 +216,19 @@ public class UIDirector : MonoBehaviour
     {
         if (ToLevelID > 10) { playButton.color = new Color(1, 0.5f, 0.5f); playButton.GetComponent<Button>().enabled = false; }
         else { playButton.color = Color.white; playButton.GetComponent<Button>().enabled = true; }
+    }
+    public void UpdateLevelsStats()
+    {
+        UpdatePlayButton();
+        for (int i = 0; i < level.Length; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                level[i].stars[j].enabled = false;
+            }
+            level[i].UpdateStats();
+
+        }
     }
 
 

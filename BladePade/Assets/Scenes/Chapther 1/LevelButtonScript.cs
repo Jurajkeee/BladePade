@@ -26,8 +26,8 @@ public class LevelButtonScript : MonoBehaviour {
     }
     public void SendIDToDirector()
     {
-        Debug.Log(director.ToLevelID);
-        //director.ToLevelID = level.levelID;
+        director.ToLevelID = level.levelID;
+        director.UpdatePlayButton();
     }
 
 }

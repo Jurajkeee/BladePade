@@ -10,9 +10,8 @@ public class Level : ScriptableObject
     public string description;
     public int levelID;
 
-    [HideInInspector]
-    public string bestTime;
-    [HideInInspector]
+    
+    public string bestTime;   
     public int stars;
     public string NewBestTime(string bestTime)
     {
