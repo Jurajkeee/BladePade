@@ -25,12 +25,12 @@ public class UIDirector : MonoBehaviour
     [Header("Map Menu")]
     public Image chooseLevels;
     public Image chooseChapters;
-    public Button buttonToChapter1;
+    public GameObject buttonToChapter1;
     public GameObject levelsListC1, levelsListMenu;
 
     #region "Levels"
     [Header("Levels Menu")]
-    public LevelButtonScript[] level;
+    public GameObject[] level;
     public int ToLevelID = 12;
     public Image playButton;
      #endregion
@@ -93,8 +93,8 @@ public class UIDirector : MonoBehaviour
         chooseLevels.enabled = false;
         chooseChapters.enabled = false;
 
-        buttonToChapter1 = buttonToChapter1.GetComponent<Button>();
-        buttonToChapter1.enabled = false;
+        
+        buttonToChapter1.SetActive(false);
 
 
         #region "LevelsWindow"
@@ -180,7 +180,7 @@ public class UIDirector : MonoBehaviour
         settingsButton.enabled = !settingsButton.enabled;
         mainMenu.enabled = !mainMenu.enabled;
         levelMenu.enabled = !levelMenu.enabled;
-        buttonToChapter1.enabled = !buttonToChapter1.enabled;
+        buttonToChapter1.SetActive(!buttonToChapter1.activeSelf);
 
         levelsListC1.SetActive(false);
         chooseLevels.enabled = false;
@@ -196,7 +196,7 @@ public class UIDirector : MonoBehaviour
     {
         chooseChapters.enabled = !chooseChapters.enabled;
         chooseLevels.enabled = !chooseLevels.enabled;
-        buttonToChapter1.enabled = !buttonToChapter1.enabled;
+        buttonToChapter1.SetActive(!buttonToChapter1.activeSelf);
         lastMethod = ChooseLevels;
         levelsListC1.SetActive(!levelsListC1.activeSelf);
         levelsListMenu.SetActive(false);
@@ -212,21 +212,23 @@ public class UIDirector : MonoBehaviour
     {
         if (ToLevelID < 10) {} else Debug.Log("Error with ID");
     }
-    public void UpdatePlayButton()
+    public void UpdatePlayButton(bool isReady)
     {
-        if (ToLevelID > 10) { playButton.color = new Color(1, 0.5f, 0.5f); playButton.GetComponent<Button>().enabled = false; }
+        if (!isReady) { playButton.color = new Color(1, 0.5f, 0.5f); playButton.GetComponent<Button>().enabled = false; }
         else { playButton.color = Color.white; playButton.GetComponent<Button>().enabled = true; }
     }
     public void UpdateLevelsStats()
     {
-        UpdatePlayButton();
+        UpdatePlayButton(false);
         for (int i = 0; i < level.Length; i++)
         {
+            level[i].GetComponent<LevelButtonScript>().UpdateStats();
             for (int j = 0; j < 3; j++)
             {
-                level[i].stars[j].enabled = false;
+                level[i].GetComponent<LevelButtonScript>().stars[j].enabled = false;
+                if (!level[i].GetComponent<LevelButtonScript>().level.isReady) { level[i].GetComponent<Button>().enabled = false; } else {level[i].GetComponent<Button>().enabled = true;}
             }
-            level[i].UpdateStats();
+            level[i].GetComponent<LevelButtonScript>().UpdateStats();
 
         }
     }

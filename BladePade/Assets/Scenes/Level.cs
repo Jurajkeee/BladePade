@@ -10,7 +10,9 @@ public class Level : ScriptableObject
     public string description;
     public int levelID;
 
-    
+    public bool isCompleted;
+    public bool isReady;
+
     public string bestTime;   
     public int stars;
     public string NewBestTime(string bestTime)
