@@ -228,15 +228,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scenes\Chapther 1\LevelButtonScript.cs" />
     <Compile Include="Assets\Scenes\DEBUG\AnimationController.cs" />
     <Compile Include="Assets\Scenes\DEBUG\FPSCounter.cs" />
+    <Compile Include="Assets\Scenes\Level.cs" />
     <Compile Include="Assets\Scenes\Menu\Scripts\UIDirector.cs" />
     <Compile Include="Assets\Scenes\Menu\Shop Menu\Skin.cs" />
     <Compile Include="Assets\Scenes\Menu\Shop Menu\SkinShop.cs" />
+    <Compile Include="Assets\Scenes\Menu\Touchable.cs" />
     <Compile Include="Assets\Scenes\MultiLanguage\GUINames.cs" />
     <Compile Include="Assets\Scenes\MultiLanguage\Lang.cs" />
     <Compile Include="Assets\Scenes\PlayerDB.cs" />
-    <Compile Include="Assets\Scenes\Touchable.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scenes\MultiLanguage\LanguageDictionary.xml" />
