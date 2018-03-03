@@ -1,5 +1,5 @@
 # BladePade #
-
+https://docs.google.com/document/d/1cYGlUnQECEWl1y_K3MzubbStdKWmhk9TKZldtzOvlzU/edit?usp=sharing
 
 ### Genre: 
 Runner, platformer, strategy shooter, arcade, action.
