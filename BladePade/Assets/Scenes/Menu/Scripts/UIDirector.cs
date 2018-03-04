@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+<<<<<<< HEAD
 public class UIDirector : MonoBehaviour
 {
 
@@ -10,13 +11,25 @@ public class UIDirector : MonoBehaviour
     [Header("Main Menu")]
     public Canvas mainMenu;
     public Canvas shopMenu, donationShopMenu, levelMenu, settingsMenu;
+=======
+public class UIDirector : MonoBehaviour {
+    //Main Menu
+>>>>>>> parent of e8dc61f... 12321
 
-    #region "Better Close Vars"
+    public Canvas mainMenu,shopMenu,donationShopMenu,levelMenu,settingsMenu;
+
+    //In Level Menu
+
+    public Image chooseLevels,chooseChapters;
+    public Button buttonToChapter1;
+    public GameObject levelsListC1;
+  
+
     //Savings Methods
 
     public delegate void LastMethod();
-
     LastMethod lastMethod;
+<<<<<<< HEAD
      #endregion
     #endregion
     #region "Map Window Vars"
@@ -43,6 +56,12 @@ public class UIDirector : MonoBehaviour
     [Header("Settings Menu")]
     public bool sounds;
     public bool music;//DElete when music
+=======
+
+
+    //Cancel and Confirm in Setting menu
+    public bool sounds,music;//DElete when music
+>>>>>>> parent of e8dc61f... 12321
     private bool tempSounds, tempMusic;
     public int graphicQuality;//delete when qual
     private int tempGraphicsQual;
@@ -50,31 +69,36 @@ public class UIDirector : MonoBehaviour
 
     public string OnOffMusic, OnOffSounds;
     public Vector3 musicGOTemp, soundGOTemp;
-    
+
     // Setting Buttons
-    public Image soundsButton, musicButton, settingsButton;
-    public Text soundsIndicator, musicIndicator;
+    public Image soundsButton,musicButton,settingsButton;
+    public Text soundsIndicator,musicIndicator;
     public Slider graphicsSlider;
 
+<<<<<<< HEAD
      #region "Language List Vars"
 
     [Header("Languages List")]
     public GameObject englishActive;
     public GameObject russianActive, germanActive, chineseActive, activeLang;
     public Image list, hiddenList;
+=======
+
+    //Language List
+
+    public GameObject englishActive, russianActive, germanActive, chineseActive,activeLang;
+    public Image list,hiddenList;
+>>>>>>> parent of e8dc61f... 12321
     public Text currentLangOnList;
 
     [SerializeField]
     private GUINames guiNames;
-    #endregion
-    #endregion
 
-    void Start()
-    {
-        #region "UIDirector"
+	void Start () {
+
         guiNames = guiNames.GetComponent<GUINames>();
 
-        mainMenu = mainMenu.GetComponent<Canvas>();
+        mainMenu= mainMenu.GetComponent<Canvas>();
         shopMenu = shopMenu.GetComponent<Canvas>();
         donationShopMenu = donationShopMenu.GetComponent<Canvas>();
         levelMenu = levelMenu.GetComponent<Canvas>();
@@ -84,8 +108,7 @@ public class UIDirector : MonoBehaviour
         shopMenu.enabled = false;
         donationShopMenu.enabled = false;
         levelMenu.enabled = false;
-        #endregion
-        #region "Map Window"
+
         //In Level Menu
         chooseChapters = chooseChapters.GetComponent<Image>();
         chooseLevels = chooseLevels.GetComponent<Image>();
@@ -93,6 +116,7 @@ public class UIDirector : MonoBehaviour
         chooseLevels.enabled = false;
         chooseChapters.enabled = false;
 
+<<<<<<< HEAD
         
         buttonToChapter1.SetActive(false);
 
@@ -100,9 +124,13 @@ public class UIDirector : MonoBehaviour
         #region "LevelsWindow"
         UpdateLevelsStats();
         #endregion
+=======
 
-        #endregion
-        #region "Settings Window"
+>>>>>>> parent of e8dc61f... 12321
+
+
+        buttonToChapter1 = buttonToChapter1.GetComponent<Button>();
+        buttonToChapter1.enabled = false;
         // Settings 
         soundsButton = soundsButton.GetComponent<Image>();
         soundsIndicator = soundsIndicator.GetComponent<Text>();
@@ -110,10 +138,10 @@ public class UIDirector : MonoBehaviour
         musicIndicator = musicIndicator.GetComponent<Text>();
         graphicsSlider = graphicsSlider.GetComponent<Slider>();
 
+
         settingsButton = settingsButton.GetComponent<Image>();
 
-        #region "Languages List"
-        //Languages
+        //Language
 
         list = list.GetComponent<Image>();
         hiddenList = hiddenList.GetComponent<Image>();
@@ -126,12 +154,10 @@ public class UIDirector : MonoBehaviour
         russianActive.SetActive(false);
         germanActive.SetActive(false);
         chineseActive.SetActive(false);
-        #endregion
-        #endregion
 
-    }
 
-    //Windows Director
+	}
+    //MENU
     public void ToShop()
     {
         settingsButton.enabled = !settingsButton.enabled;
@@ -140,6 +166,7 @@ public class UIDirector : MonoBehaviour
         lastMethod = ToShop;
 
     }
+
     public void ToDonationShop()
     {
         settingsButton.enabled = !settingsButton.enabled;
@@ -151,30 +178,8 @@ public class UIDirector : MonoBehaviour
     public void Close()
     {
         lastMethod();
-        if(lastMethod == ChooseLevels) { lastMethod = ToLevelMenu; }
-            else 
-        if (lastMethod == LevelsList) { lastMethod = ChooseLevels; }
-            else lastMethod = null;       
+        if (lastMethod == ChooseLevels) lastMethod = ToLevelMenu;else lastMethod = null;
     }
-    public void Settings()
-    {
-        settingsButton.enabled = !settingsButton.enabled;
-        currentLangOnList.text = guiNames.currentLang;
-        settingsMenu.enabled = !settingsMenu.enabled;
-
-        lastMethod = Settings;
-
-        musicGOTemp = musicButton.transform.position;
-        soundGOTemp = soundsButton.transform.position;
-
-        OnOffMusic = musicIndicator.text;
-        OnOffSounds = soundsIndicator.text;
-
-        tempGraphicsQual = graphicQuality; //Save begin value
-        tempLang = guiNames.currentLang;
-    }
-
-    //Map
     public void ToLevelMenu()
     {
         settingsButton.enabled = !settingsButton.enabled;
@@ -184,23 +189,21 @@ public class UIDirector : MonoBehaviour
 
         levelsListC1.SetActive(false);
         chooseLevels.enabled = false;
-        levelsListMenu.SetActive(false);
-
 
 
         chooseChapters.enabled = !chooseChapters.enabled;
         lastMethod = ToLevelMenu;
 
     }
-    public void ChooseLevels() //Chapter 1 Need to optimize for all chapters
-    {
+    public void ChooseLevels()
+    {       
         chooseChapters.enabled = !chooseChapters.enabled;
         chooseLevels.enabled = !chooseLevels.enabled;
         buttonToChapter1.SetActive(!buttonToChapter1.activeSelf);
         lastMethod = ChooseLevels;
         levelsListC1.SetActive(!levelsListC1.activeSelf);
-        levelsListMenu.SetActive(false);
     }
+<<<<<<< HEAD
     public void LevelsList() //Levels Menu
     {
         lastMethod = LevelsList;
@@ -232,19 +235,35 @@ public class UIDirector : MonoBehaviour
 
         }
     }
+=======
+    public void Settings()
+    {
+        settingsButton.enabled = !settingsButton.enabled;
+        currentLangOnList.text = guiNames.currentLang;
+        settingsMenu.enabled = !settingsMenu.enabled;
+
+        lastMethod = Settings;
+
+        musicGOTemp = musicButton.transform.position;
+        soundGOTemp = soundsButton.transform.position;
+
+        OnOffMusic = musicIndicator.text;
+        OnOffSounds = soundsIndicator.text;
+
+        tempGraphicsQual = graphicQuality;//Save begin value
+        tempLang = guiNames.currentLang;
+>>>>>>> parent of e8dc61f... 12321
 
 
+    }
     //Settings Buttons
     public void Sounds()
     {
-        if (!tempSounds)
-        {
-            soundsButton.transform.position += new Vector3(soundsButton.rectTransform.rect.width, 0, 0);
+        if(!tempSounds){
+            soundsButton.transform.position += new Vector3(soundsButton.rectTransform.rect.width,0,0);
             tempSounds = !tempSounds;
             soundsIndicator.text = "On";
-        }
-        else
-        {
+        }else{
             soundsButton.transform.position -= new Vector3(soundsButton.rectTransform.rect.width, 0, 0);
             tempSounds = !tempSounds;
             soundsIndicator.text = "Off";
@@ -271,6 +290,52 @@ public class UIDirector : MonoBehaviour
         graphicQuality = (int)graphicsSlider.value;
 
     }
+    public void LanguageList()
+    {
+        list.enabled = !list.enabled;
+        englishActive.SetActive(!englishActive.activeSelf);
+        russianActive.SetActive(!russianActive.activeSelf);
+        germanActive.SetActive(!germanActive.activeSelf);
+        chineseActive.SetActive(!chineseActive.activeSelf);
+
+    }
+    public void English()
+    {
+        
+        activeLang = englishActive;
+        ChangeActiveLang(activeLang);
+        currentLangOnList.text = "English";
+
+    }
+    public void Russian(){
+        activeLang = russianActive;
+        ChangeActiveLang(activeLang);
+        currentLangOnList.text = "Russian";
+
+    }
+    public void German(){
+        activeLang = germanActive;
+        ChangeActiveLang(activeLang);
+        currentLangOnList.text = "German";
+
+    }
+    public void Chinese(){
+        activeLang = chineseActive;
+        ChangeActiveLang(activeLang);
+        currentLangOnList.text = "Chinese";
+
+    }
+
+    public void ChangeActiveLang(GameObject activeLang)
+    {
+        
+        englishActive.GetComponent<Image>().enabled = false;
+        russianActive.GetComponent<Image>().enabled = false;
+        chineseActive.GetComponent<Image>().enabled = false;
+        germanActive.GetComponent<Image>().enabled = false;
+        activeLang.GetComponent<Image>().enabled = true;
+    }
+
     public void ConfirmPressed()
     {
         //Changing curentlanguage on in use
@@ -293,8 +358,9 @@ public class UIDirector : MonoBehaviour
 
         graphicQuality = (int)graphicsSlider.value;
     }
+
     public void Cancel() //Return all values back
-    {
+    {      
         //Changing values in setting menu to start
         graphicsSlider.value = tempGraphicsQual;
         musicButton.transform.position = musicGOTemp;
@@ -304,12 +370,12 @@ public class UIDirector : MonoBehaviour
         soundsIndicator.text = OnOffSounds;
 
         //changing active lang
-        switch (tempLang)
+        switch(tempLang)
         {
-            case "Chinese": Chinese(); break;
-            case "English": English(); break;
-            case "German": German(); break;
-            case "Russian": Russian(); break;
+            case "Chinese":Chinese();break;
+            case "English":English();break;
+            case "German":German();break;
+            case "Russian":Russian();break;
         }
         //diasbling lang list if opened
         list.enabled = false;
@@ -324,53 +390,11 @@ public class UIDirector : MonoBehaviour
 
         Close();
     }
-
-    //Languages
-    public void LanguageList()
-    {
-        list.enabled = !list.enabled;
-        englishActive.SetActive(!englishActive.activeSelf);
-        russianActive.SetActive(!russianActive.activeSelf);
-        germanActive.SetActive(!germanActive.activeSelf);
-        chineseActive.SetActive(!chineseActive.activeSelf);
-
+    public void SubChapterButton(){
+        
     }
-    public void English()
-    {
 
-        activeLang = englishActive;
-        ChangeActiveLang(activeLang);
-        currentLangOnList.text = "English";
 
-    }
-    public void Russian()
-    {
-        activeLang = russianActive;
-        ChangeActiveLang(activeLang);
-        currentLangOnList.text = "Russian";
 
-    }
-    public void German()
-    {
-        activeLang = germanActive;
-        ChangeActiveLang(activeLang);
-        currentLangOnList.text = "German";
 
-    }
-    public void Chinese()
-    {
-        activeLang = chineseActive;
-        ChangeActiveLang(activeLang);
-        currentLangOnList.text = "Chinese";
-
-    }
-    public void ChangeActiveLang(GameObject activeLang)
-    {
-
-        englishActive.GetComponent<Image>().enabled = false;
-        russianActive.GetComponent<Image>().enabled = false;
-        chineseActive.GetComponent<Image>().enabled = false;
-        germanActive.GetComponent<Image>().enabled = false;
-        activeLang.GetComponent<Image>().enabled = true;
-    }
 }

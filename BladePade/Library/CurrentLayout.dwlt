@@ -41,8 +41,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1920
     height: 1007
+=======
+    width: 1878
+    height: 947
+>>>>>>> parent of e8dc61f... 12321
   m_MinSize: {x: 950, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &3
@@ -104,12 +109,21 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 30
+<<<<<<< HEAD
     width: 1920
     height: 957
   m_MinSize: {x: 683, y: 492}
   m_MaxSize: {x: 18008, y: 14042}
   vertical: 0
   controlID: 124
+=======
+    width: 1878
+    height: 897
+  m_MinSize: {x: 683, y: 492}
+  m_MaxSize: {x: 18008, y: 14042}
+  vertical: 0
+  controlID: 142
+>>>>>>> parent of e8dc61f... 12321
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -128,12 +142,21 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1620
     height: 957
   m_MinSize: {x: 406, y: 492}
   m_MaxSize: {x: 14006, y: 14042}
   vertical: 1
   controlID: 125
+=======
+    width: 1473
+    height: 897
+  m_MinSize: {x: 406, y: 492}
+  m_MaxSize: {x: 14006, y: 14042}
+  vertical: 1
+  controlID: 112
+>>>>>>> parent of e8dc61f... 12321
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -228,6 +251,7 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 648
     width: 1620
     height: 309
@@ -235,6 +259,15 @@ MonoBehaviour:
   m_MaxSize: {x: 14006, y: 10021}
   vertical: 0
   controlID: 126
+=======
+    y: 530
+    width: 1473
+    height: 367
+  m_MinSize: {x: 336, y: 271}
+  m_MaxSize: {x: 14006, y: 10021}
+  vertical: 0
+  controlID: 113
+>>>>>>> parent of e8dc61f... 12321
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -251,8 +284,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1175
     height: 309
+=======
+    width: 892
+    height: 367
+>>>>>>> parent of e8dc61f... 12321
   m_MinSize: {x: 232, y: 271}
   m_MaxSize: {x: 10002, y: 10021}
   m_ActualView: {fileID: 19}
@@ -339,14 +377,24 @@ MonoBehaviour:
     width: 1389
     height: 627
   m_SceneLighting: 0
+<<<<<<< HEAD
   lastFramingTime: 4208.786094491427
+=======
+  lastFramingTime: 108880.9566680193
+>>>>>>> parent of e8dc61f... 12321
   m_2DMode: 1
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
+<<<<<<< HEAD
     m_Target: {x: 964.24023, y: 448.68356, z: -8.760014}
     speed: 2
     m_Value: {x: 964.24023, y: 448.68356, z: -8.760014}
+=======
+    m_Target: {x: 1107.5868, y: 518.8448, z: -30.163956}
+    speed: 2
+    m_Value: {x: 1107.5868, y: 518.8448, z: -30.163956}
+>>>>>>> parent of e8dc61f... 12321
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -373,9 +421,15 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
+<<<<<<< HEAD
     m_Target: 1482.3612
     speed: 2
     m_Value: 1482.3612
+=======
+    m_Target: 1624.8158
+    speed: 2
+    m_Value: 1624.8158
+>>>>>>> parent of e8dc61f... 12321
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -415,9 +469,15 @@ MonoBehaviour:
     height: 627
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
     m_SelectedIDs: 663b0000
     m_LastClickedID: 15206
     m_ExpandedIDs: a0fbffff00000000663b0000123d0000b43e0000
+=======
+    m_SelectedIDs: 
+    m_LastClickedID: 0
+    m_ExpandedIDs: a0fbffff00000000
+>>>>>>> parent of e8dc61f... 12321
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -509,7 +569,11 @@ MonoBehaviour:
       width: 2459.2131
       height: 1080
     m_MinimalGUI: 1
+<<<<<<< HEAD
   m_defaultScale: 0.5648148
+=======
+  m_defaultScale: 0.45555556
+>>>>>>> parent of e8dc61f... 12321
   m_TargetTexture: {fileID: 0}
   m_CurrentColorSpace: 0
   m_LastWindowPixelSize: {x: 1389, y: 627}
@@ -608,19 +672,30 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Scenes/Chapther 1
+    - Assets/Scenes/DEBUG
   m_ViewMode: 1
   m_StartGridSize: 61
   m_LastFolders:
+<<<<<<< HEAD
   - Assets/Scenes/Chapther 1
   m_LastFoldersGridSize: 61
+=======
+  - Assets/Scenes/DEBUG
+  m_LastFoldersGridSize: -1
+>>>>>>> parent of e8dc61f... 12321
   m_LastProjectPath: C:\Users\Jura\Desktop\BladePade\BladePade
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
     m_SelectedIDs: 88390000
     m_LastClickedID: 14728
     m_ExpandedIDs: 00000000a0270000ee2a0000b02b0000fc2c0000e2340000883900004a42000000ca9a3bffffff7f
+=======
+    m_SelectedIDs: 0c2b0000
+    m_LastClickedID: 11020
+    m_ExpandedIDs: 000000009c270000e22a0000a42b0000ec2c0000c834000060390000623f000000ca9a3bffffff7f
+>>>>>>> parent of e8dc61f... 12321
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -648,7 +723,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< HEAD
     m_ExpandedIDs: 00000000a0270000ee2a0000b02b0000fc2c0000e2340000883900004a420000
+=======
+    m_ExpandedIDs: 000000009c270000e22a0000a42b0000ec2c0000c834000060390000623f0000
+>>>>>>> parent of e8dc61f... 12321
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -675,7 +754,11 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
+<<<<<<< HEAD
     m_HadKeyboardFocusLastEvent: 1
+=======
+    m_HadKeyboardFocusLastEvent: 0
+>>>>>>> parent of e8dc61f... 12321
     m_ExpandedInstanceIDs: ae0a0000ae2c000014070000980a0000b299ffff5e10000066100000f20a000024070000381e0000f0210000221e00001a07000030070000422800002007000042090000681000002a070000360700002207000038070000540700004c07000058070000e01100002c0b00009410000048b60000e40a000066070000d008000080070000860700002409000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -803,10 +886,17 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 1622
     y: 92
     width: 298
     height: 936
+=======
+    x: 1488
+    y: 144
+    width: 403
+    height: 876
+>>>>>>> parent of e8dc61f... 12321
   m_ScrollPosition: {x: 0, y: 0}
   m_InspectorMode: 0
   m_PreviewResizer:
