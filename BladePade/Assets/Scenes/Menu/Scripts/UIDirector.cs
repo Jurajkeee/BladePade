@@ -73,6 +73,7 @@ public class UIDirector : MonoBehaviour
     {
         #region "UIDirector"
         guiNames = guiNames.GetComponent<GUINames>();
+        guiNames.UpdateBalance();
 
         mainMenu = mainMenu.GetComponent<Canvas>();
         shopMenu = shopMenu.GetComponent<Canvas>();
@@ -226,7 +227,15 @@ public class UIDirector : MonoBehaviour
             for (int j = 0; j < 3; j++)
             {
                 level[i].GetComponent<LevelButtonScript>().stars[j].enabled = false;
-                if (!level[i].GetComponent<LevelButtonScript>().level.isReady) { level[i].GetComponent<Button>().enabled = false; } else {level[i].GetComponent<Button>().enabled = true;}
+                if (!level[i].GetComponent<LevelButtonScript>().level.isReady)
+                {
+                  level[i].GetComponent<Button>().enabled = false;
+                  level[i].GetComponent<Image>().color = new Color(0.85f, 0.85f, 0.85f); }
+                else
+                {
+                  level[i].GetComponent<Button>().enabled = true;
+                  level[i].GetComponent<Image>().color = Color.white;
+                }
             }
             level[i].GetComponent<LevelButtonScript>().UpdateStats();
 
