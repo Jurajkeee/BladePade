@@ -21,30 +21,8 @@ public class SkinShop : MonoBehaviour {
     //Player Data Base
     public PlayerDB playerDB;
     public GUINames guiNames;
-
-
    
 	void Start () {
-        
-        //skin cost
-        skin[0] = new Skin(skinPrev[0], 0,1000);       
-        skin[1] = new Skin(skinPrev[1], 500, 0);
-        skin[2] = new Skin(skinPrev[2], 1000, 0);
-        skin[3] = new Skin(skinPrev[3], 2500, 0);
-        skin[4] = new Skin(skinPrev[4], 5000, 2000);
-        skin[5] = new Skin(skinPrev[5], 10000, 0);
-        skin[6] = new Skin(skinPrev[6], 25000, 10000);
-        //
-
-        //weapon cost
-        weapon[0] = new Skin(weaponPrev[0], 100, 0);
-        weapon[1] = new Skin(weaponPrev[1], 500, 0);
-        weapon[2] = new Skin(weaponPrev[2], 1000, 0);
-        weapon[3] = new Skin(weaponPrev[3], 2500, 1000);
-        weapon[4] = new Skin(weaponPrev[4], 5000, 0);
-        weapon[5] = new Skin(weaponPrev[5], 10000, 0);
-        weapon[6] = new Skin(weaponPrev[6], 25000, 10000);
-        //
         UpdateSkin();
         armourButton.color = new Color(0.85f, 0.85f, 0.85f);
 	}
@@ -64,39 +42,60 @@ public class SkinShop : MonoBehaviour {
     public void Buy(){
         if (category && (playerDB.gold >= skin[currentID].gold && playerDB.diamonds >= skin[currentID].diamonds))
         {
-            playerDB.gold -= skin[currentID].gold;
-            playerDB.diamonds -= skin[currentID].diamonds;
-            playerDB.skinID = currentID;
-            skin[currentID] = new Skin(skin[currentID].SkinPrev, 0, 0);
-            UpdateSkin();
-            guiNames.UpdateBalance();
+            if (skin[currentID].isBought == false)
+            {              
+                skin[currentID].SkinIsBought(playerDB);
+                playerDB.skinID = currentID;
+
+                UpdateSkin();
+                guiNames.UpdateBalance();
+            } else playerDB.skinID = currentID;
         } 
         else {}
         if(!category &&(playerDB.gold >= weapon[currentID].gold && playerDB.diamonds >= weapon[currentID].diamonds)) 
         {
-            playerDB.gold -= weapon[currentID].gold;
-            playerDB.diamonds -= weapon[currentID].diamonds;
-            playerDB.weaponID = currentID;
-            weapon[currentID] = new Skin(weapon[currentID].SkinPrev, 0, 0);
-            UpdateSkin();
-            guiNames.UpdateBalance();
+            if (weapon[currentID].isBought == false)
+            {              
+                weapon[currentID].SkinIsBought(playerDB);
+                playerDB.weaponID = currentID;
+
+                UpdateSkin();
+                guiNames.UpdateBalance();
+            } else playerDB.weaponID = currentID;
         }
         else {}
     }
     public void UpdateSkin(){
         if (category)
         {
-            
-            skinPlace.sprite = skin[currentID].SkinPrev;
-            gold.text = skin[currentID].gold.ToString();
-            diamonds.text = skin[currentID].diamonds.ToString();
-            NotEnoughMoneyCheck();
+            if (skin[currentID].isBought == false)
+            {
+                skinPlace.sprite = skin[currentID].SkinPrev;
+                gold.text = skin[currentID].gold.ToString();
+                diamonds.text = skin[currentID].diamonds.ToString();
+                NotEnoughMoneyCheck();
+            }
+            else
+            {
+                skinPlace.sprite = skin[currentID].SkinPrev;
+                gold.text = "0";
+                diamonds.text = "0";
+            }
             
         }else{
-            skinPlace.sprite = weapon[currentID].SkinPrev;
-            gold.text = weapon[currentID].gold.ToString();
-            diamonds.text = weapon[currentID].diamonds.ToString();
-            NotEnoughMoneyCheck();
+            if (weapon[currentID].isBought == false)
+            {
+                skinPlace.sprite = weapon[currentID].SkinPrev;
+                gold.text = weapon[currentID].gold.ToString();
+                diamonds.text = weapon[currentID].diamonds.ToString();
+                NotEnoughMoneyCheck();
+            }
+            else
+            {
+                skinPlace.sprite = weapon[currentID].SkinPrev;
+                gold.text = "0";
+                diamonds.text = "0";
+            }
         }
        
     }

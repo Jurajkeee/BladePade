@@ -3,15 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Skin
+[CreateAssetMenu(fileName = "New Skin", menuName = "Skin")]
+public class Skin:ScriptableObject
 {
+       
     public Sprite SkinPrev;
     public int gold;
     public int diamonds;
-    public Skin(Sprite SkinPrev,int gold,int diamonds)
+    [Space(10)]
+    public bool isBought;
+
+    public void SkinIsBought(PlayerDB playerDB)
     {
-        this.SkinPrev = SkinPrev;
-        this.gold = gold;
-        this.diamonds = diamonds;
-    }
+        playerDB.gold -= gold;
+        playerDB.diamonds -= diamonds;
+        
+        isBought = true;
+    } 
 }
