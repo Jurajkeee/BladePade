@@ -33,14 +33,16 @@ public class UIDirector : MonoBehaviour
     public GameObject[] level;
     public int ToLevelID = 12;
     public Image playButton;
-     #endregion
+    #endregion
 
-    #endregion   
+    #endregion
     #region "Settings Window Vars"
 
     //Cancel and Confirm in Setting menu
-    
+
     [Header("Settings Menu")]
+    public SettingsSO settingsPreferences;
+    [Space(20)]
     public bool sounds;
     public bool music;//DElete when music
     private bool tempSounds, tempMusic;
@@ -130,6 +132,9 @@ public class UIDirector : MonoBehaviour
         #endregion
         #endregion
 
+        //settingsPreferences.musicButtonPosition = musicButton.transform.position;
+        //settingsPreferences.soundsButtonPosition = soundsButton.transform.position;
+
     }
 
     //Windows Director
@@ -165,14 +170,28 @@ public class UIDirector : MonoBehaviour
 
         lastMethod = Settings;
 
-        musicGOTemp = musicButton.transform.position;
-        soundGOTemp = soundsButton.transform.position;
+        musicGOTemp = settingsPreferences.musicButtonPosition;
+        soundGOTemp = settingsPreferences.soundsButtonPosition;
 
         OnOffMusic = musicIndicator.text;
         OnOffSounds = soundsIndicator.text;
 
-        tempGraphicsQual = graphicQuality; //Save begin value
+        tempGraphicsQual = settingsPreferences.graphics; //Save begin value
         tempLang = guiNames.currentLang;
+
+        graphicsSlider.value = settingsPreferences.graphics;
+
+        tempSounds = settingsPreferences.sound;
+        soundsButton.transform.position = settingsPreferences.soundsButtonPosition;
+        OnOffMusic = settingsPreferences.OffOnMusic;
+
+        tempMusic = settingsPreferences.music;
+        musicButton.transform.position = settingsPreferences.musicButtonPosition;
+        OnOffSounds = settingsPreferences.OffOnSound;
+
+        musicIndicator.text = settingsPreferences.OffOnMusic;
+        soundsIndicator.text = settingsPreferences.OffOnSound;
+
     }
 
     //Map
@@ -243,6 +262,7 @@ public class UIDirector : MonoBehaviour
     }
 
 
+
     //Settings Buttons
     public void Sounds()
     {
@@ -250,42 +270,62 @@ public class UIDirector : MonoBehaviour
         {
             soundsButton.transform.position += new Vector3(soundsButton.rectTransform.rect.width, 0, 0);
             tempSounds = !tempSounds;
-            soundsIndicator.text = "On";
+            OnOffSounds = "On";
+            soundsIndicator.text = OnOffSounds;
         }
-        else
+        else  if(tempSounds)
         {
-            soundsButton.transform.position -= new Vector3(soundsButton.rectTransform.rect.width, 0, 0);
+            soundsButton.transform.position -= new Vector3 (soundsButton.rectTransform.rect.width, 0, 0);
             tempSounds = !tempSounds;
-            soundsIndicator.text = "Off";
+            OnOffSounds = "Off";
+            soundsIndicator.text = OnOffSounds;
         }
+    }
+    public void AudioSliderOff(Image AudioSlider)
+    {
+        AudioSlider.transform.position -= new Vector3(AudioSlider.rectTransform.rect.width, 0, 0);
+    }
+    public void AudioSliderOn(Image AudioSlider)
+    {
+        AudioSlider.transform.position += new Vector3(AudioSlider.rectTransform.rect.width, 0, 0);
     }
     public void Music()
     {
+        Debug.Log(musicButton.transform.position.ToString());
         if (!tempMusic)
         {
             musicButton.transform.position += new Vector3(musicButton.rectTransform.rect.width, 0, 0);
             tempMusic = !tempMusic;
-            musicIndicator.text = "On";
+            OnOffMusic = "On";
+            musicIndicator.text = OnOffMusic;
         }
-        else
+        else if(tempMusic)
         {
-            musicButton.transform.position -= new Vector3(musicButton.rectTransform.rect.width, 0, 0);
+            musicButton.transform.position -= new Vector3(musicButton.rectTransform.rect.width, 0, 0);            
             tempMusic = !tempMusic;
-            musicIndicator.text = "Off";
+            OnOffMusic = "Off";
+            musicIndicator.text = OnOffMusic;
         }
     }
     public void GraphicsQuality()
     {
         guiNames.UpdateGraphicSlider();
-        graphicQuality = (int)graphicsSlider.value;
-
+        settingsPreferences.graphics = (int)graphicsSlider.value;
     }
     public void ConfirmPressed()
     {
         //Changing curentlanguage on in use
-        guiNames.currentLang = currentLangOnList.text;
+        settingsPreferences.language = currentLangOnList.text;
         guiNames.UpdateLanguage();
 
+        settingsPreferences.musicButtonPosition = musicButton.transform.position;
+        settingsPreferences.OffOnMusic = OnOffMusic;
+        settingsPreferences.soundsButtonPosition = soundsButton.transform.position;
+        settingsPreferences.OffOnSound = OnOffSounds;
+
+        settingsPreferences.music = tempMusic;
+        settingsPreferences.sound = tempSounds;
+        settingsPreferences.graphics = (int)graphicsSlider.value;
         //Closing Setting window
         Close();
 
@@ -297,15 +337,16 @@ public class UIDirector : MonoBehaviour
         chineseActive.SetActive(false);
 
         //Saving values on opened
-        music = tempMusic;
-        sounds = tempSounds;
-
-        graphicQuality = (int)graphicsSlider.value;
+       
+        
+       
     }
+
     public void Cancel() //Return all values back
     {
         //Changing values in setting menu to start
         graphicsSlider.value = tempGraphicsQual;
+        settingsPreferences.graphics = tempGraphicsQual;
         musicButton.transform.position = musicGOTemp;
         soundsButton.transform.position = soundGOTemp;
 
@@ -328,8 +369,8 @@ public class UIDirector : MonoBehaviour
         chineseActive.SetActive(false);
 
         //deactivating temps
-        tempMusic = music;
-        tempSounds = sounds;
+        tempMusic = settingsPreferences.music;
+        tempSounds = settingsPreferences.sound;
 
         Close();
     }

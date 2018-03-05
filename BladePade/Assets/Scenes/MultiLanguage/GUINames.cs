@@ -21,6 +21,8 @@ public class GUINames : MonoBehaviour
     public UIDirector uiDirector;
     public PlayerDB playerDb;
 
+    public SettingsSO settingsPref;
+
     private void Start()
     {
         GetNames();
@@ -49,6 +51,8 @@ public class GUINames : MonoBehaviour
 
     }
     public void GetNames(){
+
+        currentLang = settingsPref.language;
         //langClass = new Lang(Path.Combine(Application.dataPath, "/Users/macbookproretina/Downloads/Disk F/BladePade/BladePade/Assets/Scenes/MultiLanguage/LanguageDictionary.xml"), currentLang); //macbook
         langClass = new Lang(Path.Combine(Application.dataPath, "C:/Users/Jura/Desktop/BladePade/BladePade/Assets/Scenes/MultiLanguage/LanguageDictionary.xml"), currentLang); //PC
         skinsT.text = langClass.GetString("skins");
