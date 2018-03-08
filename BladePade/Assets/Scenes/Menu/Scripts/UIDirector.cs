@@ -230,7 +230,7 @@ public class UIDirector : MonoBehaviour
     }
     public void PlayButton()
     {
-        if (ToLevelID < 10) {} else Debug.Log("Error with ID");
+        level[ToLevelID-1].GetComponent<LevelButtonScript>().level.LoadScene();
     }
     public void UpdatePlayButton(bool isReady)
     {

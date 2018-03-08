@@ -1,7 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2017
+# Visual Studio for Mac
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BladePade", "BladePade.csproj", "{86FA93CA-F099-BAC8-50AD-5B57841A586B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BladePade.Editor", "BladePade.Editor.csproj", "{44D15D50-7688-2570-760B-5B9E41D1BF52}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +15,10 @@ Global
 		{86FA93CA-F099-BAC8-50AD-5B57841A586B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86FA93CA-F099-BAC8-50AD-5B57841A586B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86FA93CA-F099-BAC8-50AD-5B57841A586B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44D15D50-7688-2570-760B-5B9E41D1BF52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44D15D50-7688-2570-760B-5B9E41D1BF52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44D15D50-7688-2570-760B-5B9E41D1BF52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44D15D50-7688-2570-760B-5B9E41D1BF52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

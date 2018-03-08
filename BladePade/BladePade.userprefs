@@ -1,12 +1,10 @@
 ﻿<Properties StartupConfiguration="{86FA93CA-F099-BAC8-50AD-5B57841A586B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scenes/MultiLanguage/GUINames.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scenes/Menu/Scripts/UIDirector.cs">
     <Files>
-      <File FileName="Assets/Scenes/Menu/Shop Menu/SkinShop.cs" Line="107" Column="10" />
-      <File FileName="Assets/Scenes/Menu/Scripts/UIDirector.cs" Line="222" Column="6" />
-      <File FileName="Assets/Scenes/DEBUG/FPSCounter.cs" Line="20" Column="40" />
-      <File FileName="Assets/Scenes/MultiLanguage/GUINames.cs" Line="57" Column="11" />
-      <File FileName="Assets/Scenes/MultiLanguage/LanguageDictionary.xml" Line="21" Column="9" />
-      <File FileName="Assets/Scenes/MultiLanguage/Lang.cs" Line="20" Column="1" />
+      <File FileName="Assets/Scenes/Level Presets/Player/PlayerControl.cs" Line="17" Column="30" />
+      <File FileName="Assets/Scenes/Level Presets/GUI/JoysticksCtrl.cs" Line="12" Column="26" />
+      <File FileName="Assets/Scenes/Menu/Scripts/UIDirector.cs" Line="233" Column="26" />
+      <File FileName="Assets/Scenes/Scriptable Objects/Level.cs" Line="23" Column="29" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
