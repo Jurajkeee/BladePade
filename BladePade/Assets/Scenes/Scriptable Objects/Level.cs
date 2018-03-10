@@ -20,6 +20,6 @@ public class Level : ScriptableObject
     public int stars;
 
     public void LoadScene(){
-        Application.LoadLevel(levelID);
+        SceneManager.LoadScene(levelID);
     }
 }

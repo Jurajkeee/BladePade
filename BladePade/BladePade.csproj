@@ -260,6 +260,7 @@
     <Compile Include="Assets\Scenes\Debug Scripts\FPSCounter.cs" />
     <Compile Include="Assets\Scenes\Level Presets\GUI\JoysticksCtrl.cs" />
     <Compile Include="Assets\Scenes\Level Presets\Player\PlayerControl.cs" />
+    <Compile Include="Assets\Scenes\Level Presets\Player\Thrower.cs" />
     <Compile Include="Assets\Scenes\Menu\Level Menu\LevelButtonScript.cs" />
     <Compile Include="Assets\Scenes\Menu\Scripts\Touchable.cs" />
     <Compile Include="Assets\Scenes\Menu\Scripts\UIDirector.cs" />

@@ -13,6 +13,7 @@ public class JoysticksCtrl : MonoBehaviour
 
     [Header("Player Control")]
     public PlayerControl playerControl;
+    public Thrower thrower;
 
     public bool goingLeft;
     public bool goingRight;
@@ -51,6 +52,7 @@ public class JoysticksCtrl : MonoBehaviour
     }
     public void Released_TargetController()
     {
+        thrower.Throw(target.transform.position);
         ActivateTrajectoryJoysticks();
 
         targetJoystickControl.transform.localPosition = new Vector2(0,0);

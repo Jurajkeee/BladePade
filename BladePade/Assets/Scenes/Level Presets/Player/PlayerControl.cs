@@ -37,7 +37,7 @@ public class PlayerControl : MonoBehaviour {
     {
         bool result = false;
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector3.down, jumpDistance);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector3.down, jumpDistance, layerMask);
         if (hit.collider)
         {
             result = true;
@@ -69,11 +69,7 @@ public class PlayerControl : MonoBehaviour {
     void Update()
     {
         Debug.DrawRay(transform.position, Vector3.down * jumpDistance, Color.red); // подсветка, для визуальной настройки jumpDistance
-
-       
-
         direction = new Vector2(h, 0);
-
         if (h > 0 && !facingRight) Flip(); else if (h < 0 && facingRight) Flip();
     }
     public void Jump(){
