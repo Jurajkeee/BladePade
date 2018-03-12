@@ -4,21 +4,24 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour {
     
-    [Header("Movement")][Space(10)]
-
+    
+    [HideInInspector]
     public bool MoveLeft;
+    [HideInInspector]
     public bool MoveRight;
+    [HideInInspector]
     public bool jump;
 
+    [Header("Behaviors")]
     [Space(5)]
     public float speed; // скорость движения
     public float acceleration; // ускорение
     public float jumpForce; // сила прыжка
     public float jumpDistance; // расстояние от центра объекта, до поверхности (определяется вручную в зависимости от размеров спрайта)
 
-    [Space(5)]
+    [Space(5)][HideInInspector]
     public float h;
-
+    [HideInInspector]
     public bool facingRight = true; // в какую сторону смотрит персонаж на старте?
 
     private Vector3 direction;
