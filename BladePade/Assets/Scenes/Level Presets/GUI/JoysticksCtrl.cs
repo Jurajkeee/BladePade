@@ -41,6 +41,8 @@ public class JoysticksCtrl : MonoBehaviour
         ActivateTrajectoryJoysticks();
         ClickedPos();
         targetJoystickControl.transform.position = new Vector2(fingerPos.x, fingerPos.y);
+        target.transform.position = new Vector2(Camera.main.WorldToScreenPoint(player.transform.position).x + (targetJoystickControl.transform.localPosition.x * -1),
+                                               Camera.main.WorldToScreenPoint(player.transform.position).y + (targetJoystickControl.transform.localPosition.y * -1));
     }
     public void Dragging_TargetController()
     {
