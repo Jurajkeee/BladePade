@@ -42,7 +42,7 @@ public class Thrower : MonoBehaviour {
             }
        
             sword.GetComponent<Rigidbody2D>().velocity = direction * speed;
-            sword.GetComponent<BladePrefs>().angle = angle;
+
             
             FlyingPlayBack(sword);
     }

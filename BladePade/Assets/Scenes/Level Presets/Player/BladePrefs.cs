@@ -13,28 +13,56 @@ public class BladePrefs : MonoBehaviour {
     [HideInInspector]
     public bool isFreezed=false;
 
-    public float angle;
+    [HideInInspector]
     public float randomAngle;
-
 
     [HideInInspector]
     public float sword_distance;
     private int layerMask;
-    
+
+    //Effector
+
+    public bool effectorEnabled;
+    public GameObject effector;
+    private int effectorLayerMask;
 
     void Start () {
         
         body = GetComponent<Rigidbody2D>(); 
+
         layerMask = 1 << gameObject.layer | 1 << 2;
         layerMask = ~layerMask;
 
+        effectorLayerMask = 1 << gameObject.layer | 1 << 2;
+        effectorLayerMask = ~effectorLayerMask;
+        effector = this.gameObject.transform.GetChild(0).gameObject;
+
         randomAngle = Random.Range(-5f, 5f);
+
+        
     }
 
     bool IsAppropriateSide() //Fixed bugs when freezing blade on handle side
     {       
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector3.right * transform.localScale.x, sword_distance, layerMask);
-        if (hit.collider) return true; else return false;
+        if (hit)
+        {
+            if (hit.collider) return true;
+            else return false;
+        }
+        else return false;
+    }
+    
+    void Effector(bool enabled)
+    {
+        if (enabled)
+        {          
+           effector.SetActive(true);
+           effector.transform.rotation = Quaternion.Euler(0,0,0);
+           
+        }
+        else effector.SetActive(false);
+
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -49,6 +77,8 @@ public class BladePrefs : MonoBehaviour {
             GetComponent<Animator>().SetBool("FlyingBlade", false);//Fixed bugs when rotating in the ground
             GetComponent<Animator>().enabled = false;
             GetComponent<SpriteRenderer>().color = new Color(1f,1f,1f,1f);
+
+            effectorEnabled = true;
         } 
         GetComponent<Animator>().SetBool("FlyingBlade", false);
     }
@@ -62,7 +92,7 @@ public class BladePrefs : MonoBehaviour {
             body.constraints = RigidbodyConstraints2D.None; //unfreezing position
             isFreezed = false;
             GetComponent<Animator>().SetBool("FlyingBlade", false);   //Fixed bugs when rotating in the ground
-
+            effectorEnabled = false;
         }       
     }
 
@@ -72,12 +102,13 @@ public class BladePrefs : MonoBehaviour {
         {
             transform.position = new Vector3(freezedPos.x, freezedPos.y, 2);
             transform.rotation = Quaternion.Euler(freezedRotation.x, freezedRotation.y, freezedRotation.z + randomAngle);
-
         }
 
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(transform.rotation.x, transform.rotation.y, transform.rotation.z + randomAngle), 1f);
-        Debug.DrawRay(transform.position, Vector2.right*sword_distance*transform.localScale.x, Color.red);
+        Effector(effectorEnabled);
 
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(transform.rotation.x, transform.rotation.y, transform.rotation.z + randomAngle), 1f);
+        
+        Debug.DrawRay(transform.position, Vector2.right * sword_distance * transform.localScale.x, Color.red);
     }
 
 }

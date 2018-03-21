@@ -28,12 +28,13 @@ public class PlayerControl : MonoBehaviour {
     private int layerMask;
     private Rigidbody2D body;
 
-	
-	void Start () {
+
+    void Start() {
         body = GetComponent<Rigidbody2D>();
         body.freezeRotation = true;
-        layerMask = 1 << gameObject.layer | 1 << 2;
+        layerMask = 1 << gameObject.layer | 1 << 11;
         layerMask = ~layerMask;
+        
 	}
 
     bool GetJump() // проверяем, есть ли коллайдер под ногами
@@ -41,11 +42,13 @@ public class PlayerControl : MonoBehaviour {
         bool result = false;
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector3.down, jumpDistance, layerMask);
+        
         if (hit.collider)
         {
-            result = true;
+                result = true;
         }
-
+            
+        
         return result;
     }
 
