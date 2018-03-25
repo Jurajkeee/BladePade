@@ -23,8 +23,11 @@
         <string name="jungles">Jungles</string>  
         <string name="temple">Temple</string> 
         <string name="caves">Caves</string> 
-        
-        
+
+        <string name="pause">Pause</string>  
+        <string name="resume">Resume</string>  
+        <string name="restart">Restart</string> 
+        <string name="main menu">Main Menu</string>              
         
     </English>
     //___________________________Russian__________________________
@@ -50,6 +53,12 @@
         <string name="jungles">Джунгли</string>  
         <string name="temple">Храм</string>  
         <string name="caves">Пещеры</string> 
+
+        <string name="pause">Приостановлено</string>  
+        <string name="resume">Продолжить</string>  
+        <string name="restart">Рестарт</string> 
+        <string name="main menu">Меню</string> 
+        
         
     </Russian>
     //___________________________Chinese___________________________
@@ -73,5 +82,11 @@
         <string name="pyramids"></string>  
         <string name="jungles"></string>  
         <string name="temple"></string>  
+        <string name="caves"></string> 
+
+        <string name="pause"></string>  
+        <string name="resume"></string>  
+        <string name="restart"></string> 
+        <string name="main menu"></string> 
     </Chinese>
 </languages>

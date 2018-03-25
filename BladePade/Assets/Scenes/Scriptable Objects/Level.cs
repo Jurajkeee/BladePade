@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 [CreateAssetMenu(fileName ="New Level", menuName = "Level")]
 public class Level : ScriptableObject
@@ -16,10 +17,16 @@ public class Level : ScriptableObject
     public bool isReady;
 
     [Header("Scores")]
-    public string bestTime;   
+
+    public TimeSpan bestTime;
+   
     public int stars;
 
     public void LoadScene(){
         SceneManager.LoadScene(levelID);
     }
+    public void ShowBestTime(){
+        Debug.Log(bestTime);
+    }
+
 }
