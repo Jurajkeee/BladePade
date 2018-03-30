@@ -18,9 +18,17 @@ public class Level : ScriptableObject
 
     [Header("Scores")]
 
-    public TimeSpan bestTime;
-   
+    public float bestTime;  
     public int stars;
+
+    [Space(10)][Header("Currency")]
+    public int multiplier;
+    public int swordsForGoldAchieve;
+    public float timeForMultiplier;
+    public int bonusForComplete;
+    [Space(2)]
+    public int starValue;
+    public int bladeValue;
 
     public void LoadScene(){
         SceneManager.LoadScene(levelID);

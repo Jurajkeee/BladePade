@@ -13,6 +13,8 @@ public class Thrower : MonoBehaviour {
     [Header("Animations")]
     public float minimalDistance;
     public float animation_speed;
+    [Space(2)]
+    public LevelRecorder levelRecorder;
 
     
 
@@ -30,7 +32,7 @@ public class Thrower : MonoBehaviour {
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
         GameObject sword = (GameObject)Instantiate(swordPrefab, transform.position + (Vector3)(direction), Quaternion.Euler(0,0,Random.Range(-5,5)));
-                  
+        levelRecorder.usedBlades++;       
             if (angle > 90f || angle < -90f)
             {
                 sword.GetComponent<Transform>().transform.localScale = new Vector3(-1, 1);

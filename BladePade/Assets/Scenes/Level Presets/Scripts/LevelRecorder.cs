@@ -6,35 +6,48 @@ using UnityEngine.UI;
 
 //SENDING DATA TO DATABASE, NEEDED BECAUSE WHEN UNFINISHED LEAVE NOT TO SEND DATA TO DB
 public class LevelRecorder : MonoBehaviour {
-    
+   [Header("Stats")][Space(2)] 
     public int starsCollected;
-    public TimeSpan finishTime;
+    public float finishTime;
+    public int usedBlades;
+    [Space(10)]
     public Level levelstats;
+    public GUIDirector director;
+    public PlayerDB playerDB;
 
     public Text timerT;
+    
     float time;
-    private void Start()
-    {
-        levelstats.ShowBestTime();
-    }
+
+    [Space(10)]
+    [Header("Currency")]
+    public bool useTimeMultiplier;
+    public bool useBladeBonus;
+    public int coins;
+
     public void Finished(){
         if (levelstats.stars < starsCollected) levelstats.stars = starsCollected;
-
-        float minutes = Mathf.Floor(time / 60);
-        float seconds = Mathf.RoundToInt(time % 60);
-        finishTime = new TimeSpan(0,(Int32) minutes, (Int32)seconds);
-        if (levelstats.bestTime < finishTime || levelstats.bestTime == TimeSpan.MinValue) levelstats.bestTime = finishTime;
-
+        finishTime = time;
+        if (levelstats.bestTime > finishTime || levelstats.bestTime == 0) { levelstats.bestTime = finishTime; }
         levelstats.isCompleted = true;
-        Debug.Log("Finished");
-        levelstats.ShowBestTime();
+        coins = MoneyGiver.CalculateCurrency(this, useTimeMultiplier, useBladeBonus);
+        playerDB.gold += coins;
+        levelstats.multiplier= 1;
+       
+        director.FinishWindow();
+
     }
     private void Update()
     {
         time += Time.deltaTime;
-        timerT.text = time.ToString();              
+        timerT.text = ConvertToNormalTimer(time);             
     }
 
-
+    public string ConvertToNormalTimer(float time)
+    {
+        float minutes = Mathf.Floor(time / 60);
+        float seconds = Mathf.RoundToInt(time % 60);
+        return minutes + ":" + seconds;
+    }
 
 }

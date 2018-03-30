@@ -23,7 +23,7 @@ public class LevelButtonScript : MonoBehaviour {
         {
             stars[i].enabled = true;
         }
-        bestTime.text = level.bestTime.Minutes.ToString() + ":" + level.bestTime.Seconds.ToString();
+        bestTime.text = level.bestTime.ToString();
         if (previousLevel.isCompleted == true) { level.isReady = true; director.UpdatePlayButton(true); }  else { level.isReady = false; director.UpdatePlayButton(false); }
     }
     public void SendIDToDirector()
