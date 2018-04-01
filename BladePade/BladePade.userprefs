@@ -1,11 +1,8 @@
 ﻿<Properties StartupConfiguration="{86FA93CA-F099-BAC8-50AD-5B57841A586B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scenes/Level Presets/Scripts/LevelRecorder.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scenes/Level Presets/Scripts/Thrower.cs">
     <Files>
-      <File FileName="Assets/Scenes/Level Presets/GUI/JoysticksCtrl.cs" Line="55" Column="44" />
-      <File FileName="Assets/Scenes/Level Presets/Scripts/GUIDirector.cs" Line="16" Column="5" />
-      <File FileName="Assets/Scenes/Level Presets/Scripts/LevelRecorder.cs" Line="18" Column="35" />
-      <File FileName="Assets/Scenes/Scriptable Objects/Level.cs" Line="29" Column="29" />
-      <File FileName="Assets/Scenes/Level Presets/Scripts/Finish.cs" Line="10" Column="75" />
+      <File FileName="Assets/Scenes/Level Presets/Scripts/BladePrefs.cs" Line="54" Column="27" />
+      <File FileName="Assets/Scenes/Level Presets/Scripts/Thrower.cs" Line="41" Column="76" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

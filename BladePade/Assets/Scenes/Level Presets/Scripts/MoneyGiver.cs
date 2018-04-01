@@ -7,8 +7,8 @@ public class MoneyGiver
     public static int CalculateCurrency(LevelRecorder levelRecords, bool useTimeMultiplier, bool useSwordsMultiplier)
     {
         int currency;
-        if (levelRecords.levelstats.stars <= levelRecords.starsCollected)
-        { currency = (levelRecords.starsCollected * levelRecords.levelstats.starValue) * levelRecords.levelstats.multiplier;}
+        if (levelRecords.levelstats.stars < levelRecords.starsCollected)
+        { currency = (levelRecords.starsCollected * levelRecords.levelstats.starValue); }
         else
         { currency = levelRecords.levelstats.bonusForComplete;}
         

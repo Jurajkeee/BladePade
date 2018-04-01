@@ -47,8 +47,9 @@ public class BladePrefs : MonoBehaviour {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector3.right * transform.localScale.x, sword_distance, layerMask);
         if (hit)
         {
-            if (hit.collider) return true;
+            if (hit.collider) { return true;}
             else return false;
+
         }
         else return false;
     }
@@ -79,10 +80,10 @@ public class BladePrefs : MonoBehaviour {
             GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
 
             effectorEnabled = true;
+
         }
         else
         {
-            effectorEnabled = false;
         }
             GetComponent<Animator>().SetBool("FlyingBlade", false);
         
