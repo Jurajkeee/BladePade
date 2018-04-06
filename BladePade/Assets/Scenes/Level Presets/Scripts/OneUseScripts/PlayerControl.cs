@@ -5,15 +5,15 @@ using UnityEngine;
 public class PlayerControl : MonoBehaviour {
     
     
-    [HideInInspector]
+    //[HideInInspector]
     public bool MoveLeft;
-    [HideInInspector]
+    //[HideInInspector]
     public bool MoveRight;
     [HideInInspector]
     public bool jump;
 
     [Header("Behaviors")]
-    [Space(5)]
+    [Space(5)]  
     public float speed; // скорость движения
     public float acceleration; // ускорение
     public float jumpForce; // сила прыжка
@@ -29,7 +29,7 @@ public class PlayerControl : MonoBehaviour {
     private Rigidbody2D body;
 
 
-    void Start() {
+    void Start() {      
         body = GetComponent<Rigidbody2D>();
         body.freezeRotation = true;
         layerMask = 1 << gameObject.layer | 1 << 11;
@@ -83,5 +83,9 @@ public class PlayerControl : MonoBehaviour {
         {
             body.velocity = new Vector2(0, jumpForce);
         } 
+    }
+    public void DieMF()
+    {
+
     }
 }
