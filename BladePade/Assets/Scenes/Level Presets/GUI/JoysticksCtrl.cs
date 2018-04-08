@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class JoysticksCtrl : MonoBehaviour
 {    
+    [Space(4)] [TextArea] public string description;[Space(4)]
     private Vector3 fingerPos;
 
     [Header("Target Controls")][Space(10)]

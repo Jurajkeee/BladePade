@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 //SENDING DATA TO DATABASE, NEEDED BECAUSE WHEN UNFINISHED LEAVE NOT TO SEND DATA TO DB
 public class LevelRecorder : MonoBehaviour {
-   [Header("Stats")][Space(2)] 
+    [Space(4)] [TextArea] public string description;[Space(4)]
+    [Header("Stats")][Space(2)] 
     public int starsCollected;
     public float finishTime;
     public int usedBlades;

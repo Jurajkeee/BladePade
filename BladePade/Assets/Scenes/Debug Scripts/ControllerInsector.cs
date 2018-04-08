@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ControllerInsector : MonoBehaviour {
+    [Space(4)] [TextArea] public string description;[Space(4)]
     public PlayerControl playerControl;
     public JoysticksCtrl joystickCTRL;
 	

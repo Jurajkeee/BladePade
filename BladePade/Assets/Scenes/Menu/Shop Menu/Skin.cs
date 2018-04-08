@@ -15,7 +15,7 @@ public class Skin:ScriptableObject
 
     public void SkinIsBought(PlayerDB playerDB)
     {
-        playerDB.gold -= gold;
+        playerDB.TakeGold(gold);
         playerDB.diamonds -= diamonds;
         
         isBought = true;

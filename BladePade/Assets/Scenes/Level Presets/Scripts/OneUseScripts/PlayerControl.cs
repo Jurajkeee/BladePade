@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerControl : MonoBehaviour {
-    
+    [Space(4)] [TextArea] public string description;[Space(4)]
     
     //[HideInInspector]
     public bool MoveLeft;
@@ -56,6 +56,7 @@ public class PlayerControl : MonoBehaviour {
     {
         if (MoveLeft || MoveRight)
         {
+            //body.constraints = RigidbodyConstraints2D.None;
             body.AddForce(direction * body.mass * speed * acceleration);
 
             if (Mathf.Abs(body.velocity.x) > speed)
@@ -63,6 +64,7 @@ public class PlayerControl : MonoBehaviour {
                 body.velocity = new Vector2(Mathf.Sign(body.velocity.x) * speed, body.velocity.y);
             }
         }
+        //else body.constraints = RigidbodyConstraints2D.FreezePositionX;
     }
     void Flip() // отражение по горизонтали
     {

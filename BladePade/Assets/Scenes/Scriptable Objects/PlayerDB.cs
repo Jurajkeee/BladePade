@@ -11,12 +11,13 @@ public class PlayerDB : ScriptableObject
     [Space(10)][Header("Skins")]
     public int skinID;
     public int weaponID;
-    void Start()
-    {
 
+    public bool TakeGold(int toTake){
+        if (toTake > gold) return false;else{
+            gold -= toTake;
+            return true;
+        }
     }
-    void OnApplicationQuit()
-    {
 
-    }
+
 }

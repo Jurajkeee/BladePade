@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Thrower : MonoBehaviour {
+    [Space(4)] [TextArea] public string description;[Space(4)]
     [Header("Blade")]    
     public GameObject swordPrefab;
 
