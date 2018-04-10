@@ -18,6 +18,14 @@ public class PlayerDB : ScriptableObject
             return true;
         }
     }
+    public bool TakeDiamonds(int toTake){
+        if (toTake > diamonds) return false;
+        else
+        {
+            diamonds -= toTake;
+            return true;
+        }  
+    }
 
 
 }

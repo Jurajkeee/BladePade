@@ -15,23 +15,26 @@ public class PlayerStats : MonoBehaviour {
 
     private Vector3 spawnPoint;
     private GUIDirector guidirector;
+    public bool isDead;
+
     private void Start()
     {
         guidirector = GetComponent<GUIDirector>();
 
         spawnPoint = SpawnPoint();
         speed = player.speed;
-        Debug.Log(spawnPoint);
     }
 
     public void KillMe()
-    {        
-        lifes--;
-        guidirector.UpdateGUI();
-        ReSpawn();
-        if(lifes<=0){
-            guidirector.GetMoreLivesWindow();
-        }
+    {
+
+            lifes--;
+            guidirector.UpdateGUI();
+            ReSpawn();
+            if (lifes <= 0)
+            {
+                guidirector.GetMoreLivesWindow();
+            }
     }
     public void SlowMe(bool slow)
     {
@@ -40,7 +43,6 @@ public class PlayerStats : MonoBehaviour {
     public void ReSpawn()
     {
         player.transform.position = spawnPoint;
-
     }
     private Vector3 SpawnPoint()
     {
