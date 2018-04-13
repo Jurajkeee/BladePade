@@ -51,7 +51,6 @@ public class JoysticksCtrl : MonoBehaviour
         targetJoystickControl.transform.position = new Vector2(fingerPos.x,fingerPos.y);
         target.transform.position = new Vector2(Camera.main.WorldToScreenPoint(player.transform.position).x + (targetJoystickControl.transform.localPosition.x*-1), 
                                                 Camera.main.WorldToScreenPoint(player.transform.position).y + (targetJoystickControl.transform.localPosition.y*-1));
-
     }
     public void Released_TargetController()
     {
@@ -59,7 +58,7 @@ public class JoysticksCtrl : MonoBehaviour
         ActivateTrajectoryJoysticks();
 
         targetJoystickControl.transform.localPosition = new Vector2(0,0);
-        target.transform.position = Camera.main.WorldToScreenPoint(player.transform.position);
+        target.transform.position = Camera.main.WorldToScreenPoint(player.transform.position)*2;
     }
    
     //Movement control
