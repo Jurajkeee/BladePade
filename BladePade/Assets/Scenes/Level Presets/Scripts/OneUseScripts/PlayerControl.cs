@@ -18,7 +18,8 @@ public class PlayerControl : MonoBehaviour {
     public float acceleration; // ускорение
     public float jumpForce; // сила прыжка
     public float jumpDistance; // расстояние от центра объекта, до поверхности (определяется вручную в зависимости от размеров спрайта)
-
+    [Space(2)]
+    public GameObject core;
     [Space(5)][HideInInspector]
     public float h;
     [HideInInspector]
@@ -27,6 +28,7 @@ public class PlayerControl : MonoBehaviour {
     private Vector3 direction;
     private int layerMask;
     private Rigidbody2D body;
+
 
 
     void Start() {      

@@ -1,14 +1,8 @@
 ﻿<Properties StartupConfiguration="{86FA93CA-F099-BAC8-50AD-5B57841A586B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scenes/Scriptable Objects/PlayerDB.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scenes/Debug Scripts/ControllerInsector.cs">
     <Files>
-      <File FileName="Assets/Scenes/Level Presets/Scripts/OneUseScripts/GUIDirector.cs" Line="23" Column="22" />
-      <File FileName="Assets/Scenes/Level Presets/Scripts/OneUseScripts/PlayerStats.cs" Line="37" Column="14" />
-      <File FileName="Assets/Scenes/Level Presets/Scripts/OneUseScripts/LevelRecorder.cs" Line="17" Column="17" />
-      <File FileName="Assets/Scenes/Scriptable Objects/PlayerDB.cs" Line="25" Column="21" />
-      <File FileName="Assets/Scenes/Menu/Shop Menu/SkinShop.cs" Line="47" Column="41" />
-      <File FileName="Assets/Scenes/Menu/Shop Menu/Skin.cs" Line="18" Column="33" />
-      <File FileName="Assets/Scenes/Level Presets/Scripts/OneUseScripts/PlayerControl.cs" Line="59" Column="15" />
-      <File FileName="Assets/Scenes/Level Presets/Scripts/HitBox.cs" Line="16" Column="15" />
+      <File FileName="Assets/Scenes/Level Presets/Scripts/OneUseScripts/PlayerControl.cs" Line="73" Column="36" />
+      <File FileName="Assets/Scenes/Debug Scripts/ControllerInsector.cs" Line="14" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

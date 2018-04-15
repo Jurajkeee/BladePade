@@ -182,11 +182,11 @@ public class UIDirector : MonoBehaviour
         graphicsSlider.value = settingsPreferences.graphics;
 
         tempSounds = settingsPreferences.sound;
-        soundsButton.transform.position = settingsPreferences.soundsButtonPosition;
+        //soundsButton.transform.position = settingsPreferences.soundsButtonPosition;
         OnOffMusic = settingsPreferences.OffOnMusic;
 
         tempMusic = settingsPreferences.music;
-        musicButton.transform.position = settingsPreferences.musicButtonPosition;
+        //musicButton.transform.position = settingsPreferences.musicButtonPosition;
         OnOffSounds = settingsPreferences.OffOnSound;
 
         musicIndicator.text = settingsPreferences.OffOnMusic;
@@ -266,7 +266,7 @@ public class UIDirector : MonoBehaviour
     //Settings Buttons
     public void Sounds()
     {
-        if (!tempSounds)
+        /*if (!tempSounds)
         {
             soundsButton.transform.position += new Vector3(soundsButton.rectTransform.rect.width, 0, 0);
             tempSounds = !tempSounds;
@@ -279,19 +279,19 @@ public class UIDirector : MonoBehaviour
             tempSounds = !tempSounds;
             OnOffSounds = "Off";
             soundsIndicator.text = OnOffSounds;
-        }
+        }*/
     }
     public void AudioSliderOff(Image AudioSlider)
     {
-        AudioSlider.transform.position -= new Vector3(AudioSlider.rectTransform.rect.width, 0, 0);
+        //AudioSlider.transform.position -= new Vector3(AudioSlider.rectTransform.rect.width, 0, 0);
     }
     public void AudioSliderOn(Image AudioSlider)
     {
-        AudioSlider.transform.position += new Vector3(AudioSlider.rectTransform.rect.width, 0, 0);
+        //AudioSlider.transform.position += new Vector3(AudioSlider.rectTransform.rect.width, 0, 0);
     }
     public void Music()
     {
-        Debug.Log(musicButton.transform.position.ToString());
+        /*Debug.Log(musicButton.transform.position.ToString());
         if (!tempMusic)
         {
             musicButton.transform.position += new Vector3(musicButton.rectTransform.rect.width, 0, 0);
@@ -305,7 +305,7 @@ public class UIDirector : MonoBehaviour
             tempMusic = !tempMusic;
             OnOffMusic = "Off";
             musicIndicator.text = OnOffMusic;
-        }
+        }*/
     }
     public void GraphicsQuality()
     {
