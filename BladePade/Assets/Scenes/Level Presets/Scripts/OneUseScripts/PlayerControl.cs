@@ -5,12 +5,11 @@ using UnityEngine;
 public class PlayerControl : MonoBehaviour {
     [Space(4)] [TextArea] public string description;[Space(4)]
     
-    //[HideInInspector]
-    public bool MoveLeft;
-    //[HideInInspector]
-    public bool MoveRight;
-    [HideInInspector]
-    public bool jump;
+   // [HideInInspector]
+    public bool MoveLeft,MoveRight;
+   // [HideInInspector]
+    public bool isRunning, jump;
+
 
     [Header("Behaviors")]
     [Space(5)]  
@@ -35,8 +34,7 @@ public class PlayerControl : MonoBehaviour {
         body = GetComponent<Rigidbody2D>();
         body.freezeRotation = true;
         layerMask = 1 << gameObject.layer | 1 << 11;
-        layerMask = ~layerMask;
-        
+        layerMask = ~layerMask;        
 	}
 
     bool GetJump() // проверяем, есть ли коллайдер под ногами
@@ -44,13 +42,10 @@ public class PlayerControl : MonoBehaviour {
         bool result = false;
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector3.down, jumpDistance, layerMask);
-        
         if (hit.collider)
         {
                 result = true;
         }
-            
-        
         return result;
     }
 
@@ -79,7 +74,7 @@ public class PlayerControl : MonoBehaviour {
     void Update()
     {
         Debug.DrawRay(transform.position, Vector3.down * jumpDistance, Color.red); // подсветка, для визуальной настройки jumpDistance
-        direction = new Vector2(h, 0);
+        direction = new Vector2(h, 0);       
         if (h > 0 && !facingRight) Flip(); else if (h < 0 && facingRight) Flip();
     }
     public void Jump(){
@@ -87,9 +82,5 @@ public class PlayerControl : MonoBehaviour {
         {
             body.velocity = new Vector2(0, jumpForce);
         } 
-    }
-    public void DieMF()
-    {
-
     }
 }

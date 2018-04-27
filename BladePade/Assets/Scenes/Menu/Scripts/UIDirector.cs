@@ -8,7 +8,7 @@ public class UIDirector : MonoBehaviour
     #region "Window Director Vars"
     //Main Menu
     [Header("Main Menu")]
-    public Canvas mainMenu;
+    
     public Canvas shopMenu, donationShopMenu, levelMenu, settingsMenu;
 
     #region "Better Close Vars"
@@ -76,8 +76,7 @@ public class UIDirector : MonoBehaviour
         #region "UIDirector"
         guiNames = guiNames.GetComponent<GUINames>();
         guiNames.UpdateBalance();
-
-        mainMenu = mainMenu.GetComponent<Canvas>();
+      
         shopMenu = shopMenu.GetComponent<Canvas>();
         donationShopMenu = donationShopMenu.GetComponent<Canvas>();
         levelMenu = levelMenu.GetComponent<Canvas>();
@@ -141,7 +140,7 @@ public class UIDirector : MonoBehaviour
     public void ToShop()
     {
         settingsButton.enabled = !settingsButton.enabled;
-        mainMenu.enabled = !mainMenu.enabled;
+        
         shopMenu.enabled = !shopMenu.enabled;
         lastMethod = ToShop;
 
@@ -149,7 +148,7 @@ public class UIDirector : MonoBehaviour
     public void ToDonationShop()
     {
         settingsButton.enabled = !settingsButton.enabled;
-        mainMenu.enabled = !mainMenu.enabled;
+       
         donationShopMenu.enabled = !donationShopMenu.enabled;
         lastMethod = ToDonationShop;
 
@@ -197,8 +196,7 @@ public class UIDirector : MonoBehaviour
     //Map
     public void ToLevelMenu()
     {
-        settingsButton.enabled = !settingsButton.enabled;
-        mainMenu.enabled = !mainMenu.enabled;
+        settingsButton.enabled = !settingsButton.enabled;     
         levelMenu.enabled = !levelMenu.enabled;
         buttonToChapter1.SetActive(!buttonToChapter1.activeSelf);
 
