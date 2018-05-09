@@ -26,10 +26,10 @@ public class CharacterAnimation : MonoBehaviour {
         if (body.velocity.y < -0.1)
             RunAnimationInstantly("JumpDown");
 
-        if ((!player.MoveLeft && !player.MoveRight) && (body.velocity.y <= .000001f && body.velocity.y >= -.000001f))
+        if ((!player.MoveLeft && !player.MoveRight) && (body.velocity.y <= .9f && body.velocity.y >= -.9f))
             RunAnimationInstantly("Standing");
 
-        if (player.MoveLeft || player.MoveRight)
+        if ((player.MoveLeft || player.MoveRight) && (body.velocity.y <= .9f && body.velocity.y >= -.9f))
             RunAnimationInstantly("Run");
     }
     void RunAnimationInstantly(string toRun)

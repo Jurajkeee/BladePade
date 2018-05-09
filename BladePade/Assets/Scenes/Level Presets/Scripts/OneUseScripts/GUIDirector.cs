@@ -132,7 +132,7 @@ public class GUIDirector : MonoBehaviour
     {
         currentLang = settingsPref.language;
         //langClassLevel = new Lang(Path.Combine(Application.dataPath, "/Users/macbookproretina/Downloads/Disk F/BladePade/BladePade/Assets/Scenes/MultiLanguage/LanguageDictionary.xml"), currentLang); //macbook
-        langClassLevel = new Lang(Path.Combine(Application.dataPath, "C:/Users/Jura/Desktop/BladePade/BladePade/Assets/Scenes/MultiLanguage/LanguageDictionary.xml"), currentLang); //PC
+        langClassLevel = new Lang(Path.Combine(Application.dataPath, "C:/Users/po4ta/Desktop/BladePade/BladePade/Assets/Scenes/MultiLanguage/LanguageDictionary.xml"), currentLang); //PC
         pauseT.text = langClassLevel.GetString("pause");
         resumeT.text = langClassLevel.GetString("resume");
         restartT.text = langClassLevel.GetString("restart");
