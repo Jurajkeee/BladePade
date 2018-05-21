@@ -21,7 +21,7 @@ public class PlayerStats : MonoBehaviour {
     {
         guidirector = GetComponent<GUIDirector>();
 
-        spawnPoint = SpawnPoint();
+        SpawnPointRegistration();
         speed = player.speed;
     }
 
@@ -44,9 +44,9 @@ public class PlayerStats : MonoBehaviour {
     {
         player.transform.position = spawnPoint;
     }
-    private Vector3 SpawnPoint()
+    public void SpawnPointRegistration()
     {
-        return player.transform.position;
+         spawnPoint = player.transform.position;
     }
     
 

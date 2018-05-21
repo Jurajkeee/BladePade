@@ -36,5 +36,6 @@ public class Level : ScriptableObject
     public void ShowBestTime(){
         Debug.Log(bestTime);
     }
+    
 
 }
