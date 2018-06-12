@@ -161,6 +161,7 @@ b2010d61b8107246f02b553c0a11575d Assembly-CSharp.dll:Ferr.Example.BlobShadow
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Ferr.CameraShake
 32e8fe00b63ed946490b898f6024a2f2 Facebook.Unity.Settings.dll:Facebook.Unity.Settings.FacebookSettings
 f981f83b532da0e89a19c5a38ec92820 Assembly-CSharp.dll:.PlayerDB
+2a19b6ed258c632582c15d1de3965fd3 Assembly-CSharp.dll:.CheckpointScript
 fc1e0f4d8439d9928083474691511a13 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
 60b2bb652410a5867a5ab9a01cd38461 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkDiscovery
@@ -222,4 +223,3 @@ db3b233e35a88802fed1717d19c3d9ec Assembly-CSharp.dll:.Follow
 9a6ce7dad7e8aee4b6fc16d50385a21b Assembly-CSharp.dll:Anima2D.IkCCD2D
 1a8749a5e54ddacc520c941f3268c819 Assembly-CSharp.dll:.GUIDirector
 a8e482df6d69222c2ca475ef90a9561e Assembly-CSharp.dll:.SkinnedMeshCombiner
-2a19b6ed258c632582c15d1de3965fd3 Assembly-CSharp.dll:.CheckpointScript
