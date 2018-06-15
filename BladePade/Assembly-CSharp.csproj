@@ -59,7 +59,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\GameData\config\gameplay\BearTrap\BearTrap.cs" />
     <Compile Include="Assets\GameData\config\gameplay\Checkpoint\CheckpointScript.cs" />
+    <Compile Include="Assets\GameData\config\gameplay\FakeGround\fake_ground_script.cs" />
+    <Compile Include="Assets\GameData\config\gameplay\FallingSpikes\FallingSpikes.cs" />
     <Compile Include="Assets\GameData\scripts\BladePrefs.cs" />
     <Compile Include="Assets\GameData\scripts\Camera2D.cs" />
     <Compile Include="Assets\GameData\scripts\Camera2DTrigger.cs" />

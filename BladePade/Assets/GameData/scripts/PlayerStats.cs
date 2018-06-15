@@ -38,7 +38,7 @@ public class PlayerStats : MonoBehaviour {
     }
     public void SlowMe(bool slow)
     {
-        if (slow) player.speed *= 0.5f; else player.speed = speed;
+        if (slow) player.speed *= 0; else player.speed = speed;
     }
     public void ReSpawn()
     {
