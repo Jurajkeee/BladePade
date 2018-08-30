@@ -1,12 +1,10 @@
 ﻿<Properties StartupConfiguration="{952C13CE-80C9-3899-E698-C96B04048146}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scenes/MultiLanguage/GUINames.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scenes/MultiLanguage/Lang.cs">
     <Files>
-      <File FileName="Assets/Scenes/Level Presets/Scripts/OneUseScripts/PlayerControl.cs" Line="73" Column="1" />
-      <File FileName="Assets/Scenes/Debug Scripts/ControllerInsector.cs" Line="14" Column="1" />
-      <File FileName="Assets/Scenes/MultiLanguage/GUINames.cs" Line="57" Column="11" />
-      <File FileName="Assets/Scenes/Level Presets/Scripts/OneUseScripts/GUIDirector.cs" Line="135" Column="11" />
-      <File FileName="Assets/Scenes/Level Presets/Scripts/BladePrefs.cs" Line="2" Column="34" />
+      <File FileName="Assets/Scenes/MultiLanguage/GUINames.cs" Line="100" Column="89" />
+      <File FileName="Assets/GameData/config/singletone/InfoManager.cs" Line="57" Column="63" />
+      <File FileName="Assets/Scenes/MultiLanguage/Lang.cs" Line="21" Column="13" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

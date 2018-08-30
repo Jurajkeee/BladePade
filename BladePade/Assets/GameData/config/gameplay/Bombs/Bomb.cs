@@ -11,6 +11,7 @@ public class Bomb : MonoBehaviour {
     private void Start()
     {
         StartCoroutine(Explode(delayBeforeExplosion));
+
     }
 
     void OnTriggerStay2D(Collider2D col)
@@ -24,7 +25,14 @@ public class Bomb : MonoBehaviour {
     {
         
         yield return new WaitForSeconds(seconds);
-        if (playerInRadiusOfExplosion) playerMethodsAssembly.KillMe();
+        this.gameObject.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
+        if (playerInRadiusOfExplosion) { playerMethodsAssembly.KillMe(); Debug.Log("Is Killed"); }
+        this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        StartCoroutine(Destroy(delayBeforeExplosion));
+
+    }
+    IEnumerator Destroy(float seconds){
+        yield return new WaitForSeconds(seconds);
         Destroy(this.gameObject);
     }
 }

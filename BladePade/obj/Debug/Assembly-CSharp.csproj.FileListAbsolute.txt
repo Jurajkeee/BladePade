@@ -1,0 +1,2 @@
+/Users/macbookproretina/Downloads/Disk F/BladePade/BladePade/obj/Debug/Assembly-CSharp.csprojResolveAssemblyReference.cache
+/Users/macbookproretina/Downloads/Disk F/BladePade/BladePade/obj/Debug/Assembly-CSharp.csproj.CoreCompileInputs.cache

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 //SENDING DATA TO DATABASE, NEEDED BECAUSE WHEN UNFINISHED LEAVE NOT TO SEND DATA TO DB
 public class LevelRecorder : MonoBehaviour {
     [Space(4)] [TextArea] public string description;[Space(4)]
@@ -17,6 +18,7 @@ public class LevelRecorder : MonoBehaviour {
     public PlayerDB playerDB;
 
     public Text timerT;
+    public info_config_scriptable_object info_Config;
     
     float time;
 
@@ -27,12 +29,17 @@ public class LevelRecorder : MonoBehaviour {
     public int coins;
 
     public void Finished(){
+        //HERE
         if (levelstats.stars < starsCollected) levelstats.stars = starsCollected;
         finishTime = time;
         if (levelstats.bestTime > finishTime || levelstats.bestTime == 0) { levelstats.bestTime = finishTime; }
-        levelstats.isCompleted = true;
+        //SAVE THIS
+
+        info_Config = Resources.Load<info_config_scriptable_object>("InfoConfig");
+        if (info_Config.currentLevel == levelstats.levelID) info_Config.currentLevel++;
+
         coins = MoneyGiver.CalculateCurrency(this, useTimeMultiplier, useBladeBonus);
-        playerDB.gold += coins;
+        info_Config.gold += coins;
         levelstats.multiplier= 1;
        
         director.FinishWindow();

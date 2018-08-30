@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class LevelButtonScript : MonoBehaviour {
     public Level level;
     public Level previousLevel;  
@@ -12,8 +13,10 @@ public class LevelButtonScript : MonoBehaviour {
     [Space(10)]
     public GameObject directorGO;
     private UIDirector director;
+    public info_config_scriptable_object info_Config;
 
 	void Start () {
+        info_Config = Resources.Load<info_config_scriptable_object>("InfoConfig");
         director = directorGO.GetComponent<UIDirector>();
         UpdateStats();
 	}
@@ -24,7 +27,7 @@ public class LevelButtonScript : MonoBehaviour {
             stars[i].enabled = true;
         }
         bestTime.text = level.bestTime.ToString();
-        if (previousLevel.isCompleted == true) { level.isReady = true; director.UpdatePlayButton(true); }  else { level.isReady = false; director.UpdatePlayButton(false); }
+        if (info_Config.currentLevel>=level.levelID) { level.isReady = true; director.UpdatePlayButton(true); }  else { level.isReady = false; director.UpdatePlayButton(false); }
     }
     public void SendIDToDirector()
     {

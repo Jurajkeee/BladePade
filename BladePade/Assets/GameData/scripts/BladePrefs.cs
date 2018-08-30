@@ -34,7 +34,7 @@ public class BladePrefs : MonoBehaviour {
 
         effectorLayerMask = 1 << gameObject.layer | 1 <<11 | 1<<2;
         effectorLayerMask = ~effectorLayerMask;
-        effector = this.gameObject.transform.GetChild(0).gameObject;
+        effector = this.gameObject.transform.GetChild(1).gameObject;
 
         randomAngle = Random.Range(-5f, 5f);
 
@@ -68,11 +68,13 @@ public class BladePrefs : MonoBehaviour {
     {
         if (collision.gameObject.tag == ("Ground") && IsAppropriateSide())
         {
+            this.gameObject.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
             body.constraints = RigidbodyConstraints2D.FreezePosition; //freezing position
             freezedPos = transform.position;
             freezedRotation = transform.rotation;
             isFreezed = true;
 
+            body.bodyType = RigidbodyType2D.Static;
 
             GetComponent<Animator>().SetBool("FlyingBlade", false);//Fixed bugs when rotating in the ground
             GetComponent<Animator>().enabled = false;
@@ -81,9 +83,7 @@ public class BladePrefs : MonoBehaviour {
             effectorEnabled = true;
 
         }
-        else
-        {
-        }
+
             GetComponent<Animator>().SetBool("FlyingBlade", false);
         
     }

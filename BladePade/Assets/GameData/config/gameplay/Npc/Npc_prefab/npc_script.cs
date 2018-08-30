@@ -1,0 +1,196 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class npc_script : MonoBehaviour {
+    public Collider2D leftPatrollingEdge;
+    public Collider2D rightPatrollingEdge;
+    public Transform imMovingTo;
+    [Space(20)]
+    public int bodyType;
+    public int weaponType;
+    [Space(10)]
+    public float rangeOfView;
+    public int behavior;
+    private float speed;
+    private int direction;
+    //
+    private Rigidbody2D body;
+    private bool facingRight;
+    //
+    private int layerMask2;
+    private RaycastHit2D rangeOfViewRC;
+    private bool leavedPatrollingzone;
+    private Transform player;
+    private PlayerStats eventSystem;
+
+
+
+    private void Start()
+    {
+        eventSystem = GameObject.Find("EventSystem").GetComponent<PlayerStats>();
+        player = GameObject.Find("Core").transform;
+        direction = 1;
+        body = GetComponent<Rigidbody2D>();
+        body.freezeRotation = true;
+        //
+        Body(bodyType);
+        Weapon(weaponType);
+        //
+        layerMask2 = 1 << 8;
+    }
+    private void Update()
+    {
+        Eyes(rangeOfView);
+        Legs(behavior);
+        Debug.DrawRay(transform.position, player.position - transform.position);
+    }
+
+    private void Eyes(float rangeOfView)
+    {
+
+        Debug.DrawRay(transform.position, Vector3.right * direction * rangeOfView);
+        if (rangeOfViewRC.collider)
+        {
+            iCanSeeGG();
+            if ((player.position.x - transform.position.x) > 0 && !facingRight)
+            {
+                direction = 1;
+                Flip();
+            }
+            else if ((player.position.x - transform.position.x) < 0 && facingRight)
+            {
+                direction = -1;
+                Flip();
+            }
+        }
+        else
+        {
+            iCantSeeGG();
+        }
+    }
+
+    private void Legs(int status)
+    {
+        switch (status)
+        {
+            case 1:
+                transform.position += Vector3.right * speed * direction * Time.deltaTime;
+                Debug.Log("Walking");
+                break;
+            case 2:
+                transform.position += Vector3.right * speed * direction * 2f * Time.deltaTime;
+                Debug.Log("Running");
+                break;
+            case 3:
+                transform.position += Vector3.right * speed * direction * 0 * Time.deltaTime;
+                Debug.Log("Stop");
+                break;
+        }
+    }
+    private void Attack()//Here can be behavior for thinking if range is good for attack
+    {
+        eventSystem.KillMe();
+    }
+    private void Body(int type)
+    {
+        switch (type)
+        {
+            case 1:
+                speed = 1f;
+                rangeOfView = 5;
+                break;
+        }
+    }
+    private void Weapon(int type)
+    {
+        switch (type)
+        {
+            case 1:
+                break;
+        }
+    }
+    //Reaction Methods
+    private void Flip()
+    {
+        Debug.Log("Flip");
+        facingRight = !facingRight;
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
+    }
+    private void iCanSeeGG()
+    {
+        rangeOfViewRC = Physics2D.Raycast(transform.position, player.position - transform.position, rangeOfView, layerMask2);
+        behavior = 2;
+        Debug.Log("I've seen him");
+    }
+    private void iCantSeeGG()
+    {
+        rangeOfViewRC = Physics2D.Raycast(transform.position, Vector3.right * direction, rangeOfView, layerMask2);
+        behavior = 1;
+        Debug.Log("Nothing happening");
+        if (leavedPatrollingzone) ContinueMoving();
+
+
+    }
+    public void ContinueMoving()
+    {
+        if (imMovingTo == rightPatrollingEdge.transform)
+        {
+            leavedPatrollingzone = false;
+            direction = 1;
+            Flip();
+            Debug.Log("I'm returning for patrolling to right");
+        }
+        if (imMovingTo == leftPatrollingEdge.transform)
+        {
+            leavedPatrollingzone = false;
+            direction = -1;
+            Flip();
+            Debug.Log("I'm returning for patrolling to left");
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.name == leftPatrollingEdge.name && behavior != 2)
+        {
+            direction = 1;
+            rightPatrollingEdge.enabled = true;
+            imMovingTo = rightPatrollingEdge.transform;
+            Flip();
+        }
+        else if (collision.transform.name == leftPatrollingEdge.name)
+        {
+            imMovingTo = rightPatrollingEdge.transform;
+            leavedPatrollingzone = true;
+            Debug.Log("Im leaving patroll");
+            leftPatrollingEdge.enabled = false;
+        }
+
+        if (collision.transform.name == rightPatrollingEdge.name && behavior != 2)
+        {
+            direction = -1;
+            leftPatrollingEdge.enabled = true;
+            imMovingTo = leftPatrollingEdge.transform;
+            Flip();
+        }
+        else if (collision.transform.name == rightPatrollingEdge.name)
+        {
+            imMovingTo = leftPatrollingEdge.transform;
+            leavedPatrollingzone = true;
+            Debug.Log("Im leaving patroll");
+            rightPatrollingEdge.enabled = false;
+        }
+
+
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.transform.tag=="Player"){
+            Attack();
+        }
+    }
+
+
+}

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 [CreateAssetMenu(fileName = "New Player Preferences", menuName = "Player Preferences")]
 public class PlayerDB : ScriptableObject
 {
@@ -11,18 +12,21 @@ public class PlayerDB : ScriptableObject
     [Space(10)][Header("Skins")]
     public int skinID;
     public int weaponID;
+    public info_config_scriptable_object info_Config;
 
     public bool TakeGold(int toTake){
-        if (toTake > gold) return false;else{
-            gold -= toTake;
+        info_Config = Resources.Load<info_config_scriptable_object>("InfoConfig");
+        if (toTake > info_Config.gold) return false;else{
+            info_Config.gold -= toTake;
             return true;
         }
     }
     public bool TakeDiamonds(int toTake){
-        if (toTake > diamonds) return false;
+        info_Config = Resources.Load<info_config_scriptable_object>("InfoConfig");
+        if (toTake > info_Config.diamonds) return false;
         else
         {
-            diamonds -= toTake;
+            info_Config.diamonds -= toTake;
             return true;
         }  
     }

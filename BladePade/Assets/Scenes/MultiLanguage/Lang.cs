@@ -15,9 +15,10 @@ public class Lang
 
     public void SetLanguage(string path, string language)
         {
-            
+
+            TextAsset textAsset = (TextAsset)Resources.Load("LanguageDictionary", typeof(TextAsset));
             XmlDocument xml = new XmlDocument();
-            xml.Load(path);
+            xml.LoadXml(textAsset.text);
             Strings = new Hashtable();
             var element = xml.DocumentElement[language];
             if (element != null)

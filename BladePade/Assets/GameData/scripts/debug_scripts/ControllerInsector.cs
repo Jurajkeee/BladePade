@@ -8,14 +8,19 @@ public class ControllerInsector : MonoBehaviour {
     public JoysticksCtrl joystickCTRL;
 	
 	void Update () {
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.D))
         {
-            joystickCTRL.RightArrow();
-        } else playerControl.MoveRight = false;
-        if (Input.GetKey(KeyCode.A))
+            joystickCTRL.RightArrowDown();
+        } else if(Input.GetKeyUp(KeyCode.D)){
+            joystickCTRL.RightArrowUP();
+        }
+        if (Input.GetKeyDown(KeyCode.A))
         {
-            joystickCTRL.LeftArrow();
-        } else playerControl.MoveLeft = false;
+            joystickCTRL.LeftArrowDown();
+        } else if (Input.GetKeyUp(KeyCode.A))
+        {
+            joystickCTRL.LeftArrowUp();
+        }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             playerControl.Jump();

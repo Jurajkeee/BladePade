@@ -28,24 +28,27 @@ public class PlayerControl : MonoBehaviour {
     private int layerMask;
     private Rigidbody2D body;
 
+    RaycastHit2D hit_right;
+    RaycastHit2D hit_left;
 
+    CapsuleCollider2D capsule_collider_2d;
 
-    void Start() {      
+    void Start() {
+        capsule_collider_2d = this.gameObject.GetComponent<CapsuleCollider2D>();
         body = GetComponent<Rigidbody2D>();
         body.freezeRotation = true;
         layerMask = 1 << gameObject.layer | 1 << 11;
-        layerMask = ~layerMask;        
+        layerMask = ~layerMask;   
+
 	}
 
     bool GetJump() // проверяем, есть ли коллайдер под ногами
     {
         bool result = false;
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector3.down, jumpDistance, layerMask);
-        if (hit.collider)
-        {
+        if (hit_right.collider||hit_left.collider)
                 result = true;
-        }
+        
         return result;
     }
 
@@ -61,6 +64,7 @@ public class PlayerControl : MonoBehaviour {
                 body.velocity = new Vector2(Mathf.Sign(body.velocity.x) * speed, body.velocity.y);
             }
         }
+
         //else body.constraints = RigidbodyConstraints2D.FreezePositionX;
     }
     void Flip() // отражение по горизонтали
@@ -73,7 +77,27 @@ public class PlayerControl : MonoBehaviour {
 
     void Update()
     {
-        Debug.DrawRay(transform.position, Vector3.down * jumpDistance, Color.red); // подсветка, для визуальной настройки jumpDistance
+        hit_right = Physics2D.Raycast(new Vector3(transform.position.x + 0.23f, transform.position.y, transform.position.z), Vector3.down, jumpDistance, layerMask);
+        hit_left = Physics2D.Raycast(new Vector3(transform.position.x - 0.23f, transform.position.y, transform.position.z), Vector3.down, jumpDistance, layerMask);
+
+        Debug.DrawRay(new Vector3(transform.position.x + 0.23f, transform.position.y, transform.position.z), Vector3.down * jumpDistance, Color.blue); // подсветка, для визуальной настройки jumpDistance
+        Debug.DrawRay(new Vector3(transform.position.x - 0.23f, transform.position.y, transform.position.z), Vector3.down * jumpDistance, Color.red); // подсветка, для визуальной настройки jumpDistance
+
+        //Making not stuck on corners by changing friction to zero and reloading it
+        if (!hit_left) 
+        { 
+            capsule_collider_2d.sharedMaterial.friction = 0;
+            ReloadCollider();
+        } 
+        else
+        { 
+            capsule_collider_2d.sharedMaterial.friction = 3;
+            ReloadCollider();
+        }
+
+       
+              
+
         direction = new Vector2(h, 0);       
         if (h > 0 && !facingRight) Flip(); else if (h < 0 && facingRight) Flip();
     }
@@ -82,5 +106,9 @@ public class PlayerControl : MonoBehaviour {
         {
             body.velocity = new Vector2(0, jumpForce);
         } 
+    }
+    public void ReloadCollider(){
+        capsule_collider_2d.enabled = false;
+        capsule_collider_2d.enabled = true;
     }
 }

@@ -62,14 +62,25 @@ public class JoysticksCtrl : MonoBehaviour
     }
    
     //Movement control
-    public void LeftArrow(){
-        playerControl.MoveLeft = !playerControl.MoveLeft;
+    public void LeftArrowDown(){
+        playerControl.MoveLeft = true;
         playerControl.h = -1;
     }
-    public void RightArrow(){
-        playerControl.MoveRight = !playerControl.MoveRight;
+    public void LeftArrowUp()
+    {
+        playerControl.MoveLeft = false;
+        playerControl.h = -1;
+    }
+    public void RightArrowDown(){
+        playerControl.MoveRight = true;
         playerControl.h = 1;
     }
+    public void RightArrowUP()
+    {
+        playerControl.MoveRight = false;
+        playerControl.h = 1;
+    }
+
 
     //Jump control
     public void JumpButtonPressed()

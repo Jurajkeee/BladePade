@@ -22,7 +22,9 @@ public class SkinShop : MonoBehaviour {
     public PlayerDB playerDB;
     public GUINames guiNames;
    
+    public info_config_scriptable_object info_Config;
 	void Start () {
+        info_Config = Resources.Load<info_config_scriptable_object>("InfoConfig");
         UpdateSkin();
         armourButton.color = new Color(0.85f, 0.85f, 0.85f);
 	}
@@ -39,51 +41,64 @@ public class SkinShop : MonoBehaviour {
             UpdateSkin();
         } 
     }
+    private void Update()
+    {
+        guiNames.UpdateBalance();
+    }
     public void Buy(){
-        if (category && (playerDB.gold >= skin[currentID].gold && playerDB.diamonds >= skin[currentID].diamonds))
+        if (category && (info_Config.gold >= skin[currentID].gold && info_Config.diamonds >= skin[currentID].diamonds))
         {
-            if (skin[currentID].isBought == false)
-            {              
+            if (!info_Config.mySkins.Contains(currentID))
+            {     
+                guiNames.UpdateBalance();
                 skin[currentID].SkinIsBought(playerDB);
-                playerDB.skinID = currentID;
+
+                info_Config.mySkins.Add(currentID);
+                info_Config.currentSkin = currentID;
 
                 UpdateSkin();
-                guiNames.UpdateBalance();
-            } else playerDB.skinID = currentID;
+
+            } else info_Config.currentSkin = currentID;
         } 
         else {}
-        if(!category &&(playerDB.gold >= weapon[currentID].gold && playerDB.diamonds >= weapon[currentID].diamonds)) 
+        if(!category &&(info_Config.gold >= weapon[currentID].gold && info_Config.diamonds >= weapon[currentID].diamonds)) 
         {
-            if (weapon[currentID].isBought == false)
-            {              
+            if (!info_Config.myWeapons.Contains(currentID))
+            {     
+                guiNames.UpdateBalance();
                 weapon[currentID].SkinIsBought(playerDB);
-                playerDB.weaponID = currentID;
+
+                info_Config.myWeapons.Add(currentID);
+                info_Config.currentWeapon = currentID;
 
                 UpdateSkin();
-                guiNames.UpdateBalance();
-            } else playerDB.weaponID = currentID;
+
+            } else info_Config.currentWeapon = currentID;
         }
         else {}
     }
     public void UpdateSkin(){
         if (category)
         {
-            if (skin[currentID].isBought == false)
+            if (!info_Config.mySkins.Contains(currentID))
             {
                 skinPlace.sprite = skin[currentID].SkinPrev;
                 gold.text = skin[currentID].gold.ToString();
                 diamonds.text = skin[currentID].diamonds.ToString();
                 NotEnoughMoneyCheck();
+
             }
             else
             {
+                
                 skinPlace.sprite = skin[currentID].SkinPrev;
                 gold.text = "0";
                 diamonds.text = "0";
+
             }
             
         }else{
-            if (weapon[currentID].isBought == false)
+            if (!info_Config.myWeapons.Contains(currentID))
             {
                 skinPlace.sprite = weapon[currentID].SkinPrev;
                 gold.text = weapon[currentID].gold.ToString();
@@ -95,13 +110,14 @@ public class SkinShop : MonoBehaviour {
                 skinPlace.sprite = weapon[currentID].SkinPrev;
                 gold.text = "0";
                 diamonds.text = "0";
+
             }
         }
        
     }
     public void NotEnoughMoneyCheck()
     {
-        if (playerDB.gold < skin[currentID].gold || playerDB.diamonds < skin[currentID].diamonds)
+        if (info_Config.gold < skin[currentID].gold || info_Config.diamonds < skin[currentID].diamonds)
         {
             buyButton.color = new Color(1,0.5f,0.5f);
         }

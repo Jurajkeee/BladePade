@@ -1,0 +1,13 @@
+{
+    "gold": 1000,
+    "diamonds": 100,
+    "currentLevel": 1,
+    "mySkins": [],
+    "myWeapons": [],
+    "currentSkin": 0,
+    "currentWeapon": 0,
+    "music": 1,
+    "sounds": 1,
+    "language": "English",
+    "graphics": 2
+}
