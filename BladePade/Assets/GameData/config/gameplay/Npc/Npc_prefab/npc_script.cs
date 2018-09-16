@@ -16,14 +16,14 @@ public class npc_script : MonoBehaviour {
     private int direction;
     //
     private Rigidbody2D body;
-    private bool facingRight;
+    private bool facingRight=true;
     //
     private int layerMask2;
     private RaycastHit2D rangeOfViewRC;
     private bool leavedPatrollingzone;
     private Transform player;
     private PlayerStats eventSystem;
-
+    //
 
 
     private void Start()
@@ -53,14 +53,17 @@ public class npc_script : MonoBehaviour {
         if (rangeOfViewRC.collider)
         {
             iCanSeeGG();
-            if ((player.position.x - transform.position.x) > 0 && !facingRight)
+            if ((player.position.x - transform.position.x) > 0)
             {
                 direction = 1;
+                if (!facingRight)
                 Flip();
+                
             }
-            else if ((player.position.x - transform.position.x) < 0 && facingRight)
+            else if ((player.position.x - transform.position.x) < 0)
             {
                 direction = -1;
+                if (facingRight)
                 Flip();
             }
         }
@@ -79,7 +82,7 @@ public class npc_script : MonoBehaviour {
                 Debug.Log("Walking");
                 break;
             case 2:
-                transform.position += Vector3.right * speed * direction * 2f * Time.deltaTime;
+                transform.position += Vector3.right * speed * direction * 3f * Time.deltaTime;
                 Debug.Log("Running");
                 break;
             case 3:
@@ -97,7 +100,7 @@ public class npc_script : MonoBehaviour {
         switch (type)
         {
             case 1:
-                speed = 1f;
+                speed = 0.76f;
                 rangeOfView = 5;
                 break;
         }
@@ -113,11 +116,12 @@ public class npc_script : MonoBehaviour {
     //Reaction Methods
     private void Flip()
     {
-        Debug.Log("Flip");
         facingRight = !facingRight;
+        Debug.Log("Flip " + facingRight);
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+
     }
     private void iCanSeeGG()
     {
@@ -140,15 +144,19 @@ public class npc_script : MonoBehaviour {
         {
             leavedPatrollingzone = false;
             direction = 1;
+            if(!facingRight)
             Flip();
             Debug.Log("I'm returning for patrolling to right");
+
         }
         if (imMovingTo == leftPatrollingEdge.transform)
         {
             leavedPatrollingzone = false;
             direction = -1;
+            if(facingRight)
             Flip();
             Debug.Log("I'm returning for patrolling to left");
+            facingRight = false;
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
