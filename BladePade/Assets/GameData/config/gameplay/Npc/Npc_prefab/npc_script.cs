@@ -11,6 +11,7 @@ public class npc_script : MonoBehaviour {
     public int weaponType;
     [Space(10)]
     public float rangeOfView;
+    public float rangeOfHit;
     public int behavior;
     private float speed;
     private int direction;
@@ -20,6 +21,7 @@ public class npc_script : MonoBehaviour {
     //
     private int layerMask2;
     private RaycastHit2D rangeOfViewRC;
+    private RaycastHit2D rangeOfHitRC;
     private bool leavedPatrollingzone;
     private Transform player;
     private PlayerStats eventSystem;
@@ -44,15 +46,16 @@ public class npc_script : MonoBehaviour {
     }
     private void Update()
     {
-        Eyes(rangeOfView);
+        Eyes(rangeOfView, rangeOfHit);
         Legs(behavior);
         Debug.DrawRay(transform.position, player.position - transform.position);
     }
 
-    private void Eyes(float rangeOfView)
+    private void Eyes(float rangeOfView, float rangeOfHit)
     {
 
         Debug.DrawRay(transform.position, Vector3.right * direction * rangeOfView);
+        Debug.DrawRay(transform.position, Vector3.right * direction * rangeOfHit, Color.red);
         if (rangeOfViewRC.collider)
         {
             iCanSeeGG();
@@ -61,19 +64,34 @@ public class npc_script : MonoBehaviour {
                 direction = 1;
                 if (!facingRight)
                 Flip();
-                animator.Chase();
+                
+                if(bodyType==1){
+                    rangeOfHitRC = Physics2D.Raycast(transform.position, Vector3.right * direction, rangeOfHit, layerMask2);
+                        if(rangeOfHitRC.collider)
+                        {
+                            Attack();
+                        }
+                    }
             }
             else if ((player.position.x - transform.position.x) < 0)
             {
                 direction = -1;
                 if (facingRight)
                 Flip();
-                animator.Walk();
+
+                if (bodyType == 1){
+                    rangeOfHitRC = Physics2D.Raycast(transform.position, Vector3.right * direction, rangeOfHit, layerMask2);
+                        if (rangeOfHitRC.collider)
+                        {
+                            Attack();
+                        }
+                }
             }
         }
         else
         {
             iCantSeeGG();
+
         }
     }
 
@@ -95,9 +113,15 @@ public class npc_script : MonoBehaviour {
                 break;
         }
     }
+
     private void Attack()//Here can be behavior for thinking if range is good for attack
     {
-        animator.Hit();
+        if(bodyType==1){
+            animator.Hit();
+            behavior = 3;
+        }
+    }
+    private void Kill(){
         eventSystem.KillMe();
     }
     private void Body(int type)
@@ -133,6 +157,7 @@ public class npc_script : MonoBehaviour {
         rangeOfViewRC = Physics2D.Raycast(transform.position, player.position - transform.position, rangeOfView, layerMask2);
         behavior = 2;
         Debug.Log("I've seen him");
+        animator.Chase();
     }
     private void iCantSeeGG()
     {
@@ -140,6 +165,7 @@ public class npc_script : MonoBehaviour {
         behavior = 1;
         Debug.Log("Nothing happening");
         if (leavedPatrollingzone) ContinueMoving();
+        animator.Walk();
 
 
     }
@@ -197,12 +223,6 @@ public class npc_script : MonoBehaviour {
         }
 
 
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.transform.tag=="Player"){
-            Attack();
-        }
     }
 
 
