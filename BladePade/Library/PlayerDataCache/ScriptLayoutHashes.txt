@@ -1,6 +1,6 @@
 Android
 PlayerPath?
-/Users/macbookproretina/Downloads/Disk F/BladePade.apk
+C:/Users/po4ta/Desktop/Build.apk
 SceneListBegin?
 Assets/GameData/ui/Menu/Menu.unity
 Assets/GameData/levels/chapther_1/chapte1_subchapter 1/levels/C1S1L1.unity
@@ -144,7 +144,7 @@ bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.Audi
 c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingCollider
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 f22b0419685364758ca2ca1431462d27 Assembly-CSharp.dll:Ferr.Juice
-c31d74fad91d5cfee23b3e577d9da8fc Assembly-CSharp.dll:.FPSCounter
+cc7057b28accb9c6c2efbc1c58a031af Assembly-CSharp.dll:.FPSCounter
 9f98c2bae1ed632985d44e3d97527bbb Assembly-CSharp.dll:Ferr.Example.InfiniteTerrainChunk
 eced8c8958fc8778d1b8604e9122d164 Assembly-CSharp.dll:Anima2D.IkLimb2D
 5052c6e74c456cfa107927c76c936663 Assembly-CSharp.dll:UnityEngine.Tilemaps.AnimatedTile

@@ -24,6 +24,7 @@ public class npc_script : MonoBehaviour {
     private Transform player;
     private PlayerStats eventSystem;
     //
+    private animator_npc animator;
 
 
     private void Start()
@@ -38,6 +39,8 @@ public class npc_script : MonoBehaviour {
         Weapon(weaponType);
         //
         layerMask2 = 1 << 8;
+        //
+        animator = this.gameObject.GetComponent<animator_npc>();
     }
     private void Update()
     {
@@ -58,13 +61,14 @@ public class npc_script : MonoBehaviour {
                 direction = 1;
                 if (!facingRight)
                 Flip();
-                
+                animator.Chase();
             }
             else if ((player.position.x - transform.position.x) < 0)
             {
                 direction = -1;
                 if (facingRight)
                 Flip();
+                animator.Walk();
             }
         }
         else
@@ -93,6 +97,7 @@ public class npc_script : MonoBehaviour {
     }
     private void Attack()//Here can be behavior for thinking if range is good for attack
     {
+        animator.Hit();
         eventSystem.KillMe();
     }
     private void Body(int type)
