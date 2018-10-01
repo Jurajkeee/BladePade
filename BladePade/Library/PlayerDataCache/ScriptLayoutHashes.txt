@@ -1,6 +1,6 @@
 Android
 PlayerPath?
-C:/Users/po4ta/Desktop/Build.apk
+/Users/macbookproretina/Downloads/Disk F/Build.apk
 SceneListBegin?
 Assets/GameData/ui/Menu/Menu.unity
 Assets/GameData/levels/chapther_1/chapte1_subchapter 1/levels/C1S1L1.unity
@@ -15,7 +15,7 @@ Assets/GameData/levels/chapther_1/chapte1_subchapter 1/levels/C1S1L9.unity
 Assets/GameData/levels/chapther_1/chapte1_subchapter 1/levels/C1S1L10.unity
 SceneListEnd?
 631b293b846b73a79aeef757ede421f0 Assembly-CSharp.dll:.HitBox
-421473ad07f22b09bc1d3272ef649627 Assembly-CSharp.dll:.GUINames
+1cd844f1e2a99b351a9d351cea589b43 Assembly-CSharp.dll:.GUINames
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 cf455f7a806648c6ed4c7d3e3f8a0e03 UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
 13bdb7c23815c33a33b37b0ba8dd39be UnityEngine.Timeline.dll:UnityEngine.Timeline.AnimationPlayableAsset
@@ -210,7 +210,7 @@ a85b743ea798f21d4f73be4aca65ecc7 Assembly-CSharp.dll:.FallingSpikes
 b89100d3730459cdfed8b35d73b7ab7f Assembly-CSharp.dll:Ferr.Example.Toss
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Anima2D.EditorUpdaterProxy
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
-c27b4492d713602fd9c7b008f643cf44 Assembly-CSharp.dll:.npc_script
+54b08e40109356469e1c6e7395c49828 Assembly-CSharp.dll:.npc_script
 828daa95842846c20a2dd84a6b54b16d Assembly-CSharp.dll:.TintTextureGenerator
 98813037bd66de9fe59f561aad2e5f24 Assembly-CSharp.dll:.UIDirector
 f1999918271ea74323c76955faaaab6f Assembly-CSharp.dll:Ferr.LogoLock
@@ -228,5 +228,6 @@ d390c09b0b5eee35e58adb909df47876 Assembly-CSharp.dll:.fake_ground_script
 91e8bef165103ff481d15ba2206d43d1 Assembly-CSharp.dll:.Ferr2DT_Material
 db3b233e35a88802fed1717d19c3d9ec Assembly-CSharp.dll:.Follow
 9a6ce7dad7e8aee4b6fc16d50385a21b Assembly-CSharp.dll:Anima2D.IkCCD2D
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.animator_npc
 1a8749a5e54ddacc520c941f3268c819 Assembly-CSharp.dll:.GUIDirector
 a8e482df6d69222c2ca475ef90a9561e Assembly-CSharp.dll:.SkinnedMeshCombiner

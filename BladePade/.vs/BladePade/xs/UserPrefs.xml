@@ -1,9 +1,12 @@
 ﻿<Properties StartupConfiguration="{952C13CE-80C9-3899-E698-C96B04048146}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/GameData/scripts/animator_npc.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scenes/MultiLanguage/GUINames.cs">
     <Files>
-      <File FileName="Assets/GameData/config/gameplay/Npc/Npc_prefab/npc_script.cs" Line="85" Column="76" />
-      <File FileName="Assets/GameData/scripts/animator_npc.cs" Line="1" Column="1" />
+      <File FileName="Assets/GameData/config/gameplay/Npc/Npc_prefab/npc_script.cs" Line="132" Column="28" />
+      <File FileName="Assets/GameData/scripts/animator_npc.cs" Line="20" Column="31" />
+      <File FileName="Assets/Scenes/MultiLanguage/GUINames.cs" Line="91" Column="1" />
+      <File FileName="Assets/GameData/scripts/GUIDirector.cs" Line="1" Column="1" />
+      <File FileName="Assets/Resources/LanguageDictionary.xml" Line="57" Column="35" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

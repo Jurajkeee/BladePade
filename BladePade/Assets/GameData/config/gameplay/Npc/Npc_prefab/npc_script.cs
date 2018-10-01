@@ -104,7 +104,7 @@ public class npc_script : MonoBehaviour {
                 Debug.Log("Walking");
                 break;
             case 2:
-                transform.position += Vector3.right * speed * direction * 3f * Time.deltaTime;
+                transform.position += Vector3.right * speed * direction * 2f * Time.deltaTime;
                 Debug.Log("Running");
                 break;
             case 3:
@@ -129,7 +129,7 @@ public class npc_script : MonoBehaviour {
         switch (type)
         {
             case 1:
-                speed = 0.76f;
+                speed = 0.9f;
                 rangeOfView = 5;
                 break;
         }

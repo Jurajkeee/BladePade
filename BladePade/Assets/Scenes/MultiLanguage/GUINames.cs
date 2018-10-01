@@ -14,7 +14,7 @@ public class GUINames : MonoBehaviour
     public Text skinsT, weaponsT, buyT, buyT2 , goldT, crystalsT, languageT,
                 graphicsT, cancelT, confirmT, musicT, 
                 soundsT,settingsT,graphicalIndicator,goldBalanceT,diamondsBalanceT
-                ,templeT,pyramidsT,junglesT,townT,caveT;
+                ,templeT,pyramidsT,junglesT,townT,caveT,playT;
 
     public UIDirector uiDirector;
     public PlayerDB playerDb;
@@ -118,7 +118,7 @@ public class GUINames : MonoBehaviour
         junglesT.text = langClass.GetString("jungles");
         templeT.text = langClass.GetString("temple");
         caveT.text = langClass.GetString("caves");
-
+        playT.text = langClass.GetString("play");
 
     }
 
