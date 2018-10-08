@@ -24,6 +24,7 @@ public class BladePrefs : MonoBehaviour {
     public bool effectorEnabled;
     public GameObject effector;
     private int effectorLayerMask;
+    
 
     void Start () {
         
@@ -38,7 +39,7 @@ public class BladePrefs : MonoBehaviour {
 
         randomAngle = Random.Range(-5f, 5f);
 
-        
+        this.gameObject.GetComponent<SpriteRenderer>().sprite = GameObject.Find("Singletone").GetComponent<SkinsLoader>().GetWeapon();
     }
 
     bool IsAppropriateSide() //Fixed bugs when freezing blade on handle side

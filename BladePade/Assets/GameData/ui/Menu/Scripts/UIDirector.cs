@@ -10,7 +10,7 @@ public class UIDirector : MonoBehaviour
     [Header("Main Menu")]
     
     public Canvas shopMenu, donationShopMenu, levelMenu, settingsMenu;
-
+    public GameObject skinPreview;
     #region "Better Close Vars"
     //Savings Methods
 
@@ -87,6 +87,7 @@ public class UIDirector : MonoBehaviour
         shopMenu.enabled = false;
         donationShopMenu.enabled = false;
         levelMenu.enabled = false;
+        skinPreview.SetActive(false);
         #endregion
         #region "Map Window"
         //In Level Menu
@@ -137,12 +138,16 @@ public class UIDirector : MonoBehaviour
         //settingsPreferences.soundsButtonPosition = soundsButton.transform.position;
 
     }
-
+    //Debug
+    public void CallDebug()
+    {
+        Debug.Log("Clicked");
+    }
     //Windows Director
     public void ToShop()
     {
         settingsButton.enabled = !settingsButton.enabled;
-        
+        if(skinPreview.activeSelf!=false)skinPreview.SetActive(!skinPreview.activeSelf);
         shopMenu.enabled = !shopMenu.enabled;
         lastMethod = ToShop;
 
@@ -243,11 +248,16 @@ public class UIDirector : MonoBehaviour
                 if (!level[i].GetComponent<LevelButtonScript>().level.isReady)
                 {
                   level[i].GetComponent<Button>().enabled = false;
-                  level[i].GetComponent<Image>().color = new Color(0.85f, 0.85f, 0.85f); }
+                  level[i].GetComponent<Image>().color = new Color(0.61f, 0.61f, 0.61f); }
                 else
                 {
                   level[i].GetComponent<Button>().enabled = true;
                   level[i].GetComponent<Image>().color = Color.white;
+                }
+                if (ToLevelID == level[i].GetComponent<LevelButtonScript>().level.levelID)
+                {
+                    level[i].GetComponent<Image>().color = new Color(255, 255, 0, 152);
+                    Debug.Log(level[i].GetComponent<LevelButtonScript>().level.levelID);
                 }
             }
             level[i].GetComponent<LevelButtonScript>().UpdateStats();

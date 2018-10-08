@@ -19,7 +19,7 @@ namespace Anima2D
 		[SerializeField]
 		Mesh m_SharedMesh;
 
-		public Sprite sprite { get { return m_Sprite; } }
+		public Sprite sprite { get { return m_Sprite; } set { m_Sprite = value;} }
 		public Mesh sharedMesh { get { return m_SharedMesh; } }
 
 #region DEPRECATED

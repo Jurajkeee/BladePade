@@ -32,7 +32,9 @@ public class LevelButtonScript : MonoBehaviour {
     public void SendIDToDirector()
     {
         director.ToLevelID = level.levelID;
+        director.UpdateLevelsStats();
         director.UpdatePlayButton(true);
+        
     }
 
 }

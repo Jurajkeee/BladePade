@@ -19,12 +19,24 @@ using System.Xml.Serialization;
     public XmlDocument xml;
     private string path = "Assets/GameData/config/singletone/info_config/save.xml";
     string _data;
-    public int gold, diamonds;
+    public int gold, diamonds,current_skin,current_weapon;
 
 	private void Start () {
         info_Config = Resources.Load<info_config_scriptable_object>("InfoConfig");
         LoadXML();
         LoadData();
+
+        current_skin = info_Config.currentSkin;
+        current_weapon = info_Config.currentWeapon;
+
+        SkinsLoader skinsloader = this.gameObject.GetComponent<SkinsLoader>();
+        if (skinsloader != null && skinsloader.load_skins_on_start)
+        {
+            skinsloader.skin = current_skin;            
+            skinsloader.LoadSkin();          
+            skinsloader.weapon = current_weapon;           
+            skinsloader.hand_sword.sprite = skinsloader.GetWeapon();
+        }
 	}
     private void Update()
     {

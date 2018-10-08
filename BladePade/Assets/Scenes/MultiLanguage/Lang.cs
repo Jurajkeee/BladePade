@@ -1,40 +1,46 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System.Xml;
-using System.IO;
+
+
 //https://toster.ru/q/271453
 public class Lang
     {
         private Hashtable Strings;
    
-    public Lang(string path, string language)
+    public Lang(string language)
     {      
-            SetLanguage(path, language);   
+            SetLanguage(language);   
     }
 
-    public void SetLanguage(string path, string language)
+    public void SetLanguage(string language)
         {
-
-            TextAsset textAsset = (TextAsset)Resources.Load("LanguageDictionary", typeof(TextAsset));
-            XmlDocument xml = new XmlDocument();
+            XmlDocument xml = null;
+             TextAsset textAsset = null;
+            textAsset = Resources.Load("LanguageDictionary") as TextAsset;
+            xml = new XmlDocument();
             xml.LoadXml(textAsset.text);
+
             Strings = new Hashtable();
-            var element = xml.DocumentElement[language];
-            if (element != null)
+
+            
+
+        var element = xml.DocumentElement[language];
+        if (element != null)
+        {
+            var elemEnum = element.GetEnumerator();
+            while (elemEnum.MoveNext())
             {
-                var elemEnum = element.GetEnumerator();
-                while (elemEnum.MoveNext())
-                {
-                    var xmlItem = (XmlElement)elemEnum.Current;
-                    Strings.Add(xmlItem.GetAttribute("name"), xmlItem.InnerText);
-                }
-            }
-            else
-            {
-                Debug.LogError("The specified language does not exist: " + language);
+                var xmlItem = (XmlElement)elemEnum.Current;
+                
+                Strings.Add(xmlItem.GetAttribute("name"), xmlItem.InnerText);
             }
         }
+        else
+        {
+            Debug.LogError("The specified language does not exist: " + language);
+        }
+    }
 
 
         public string GetString(string name)

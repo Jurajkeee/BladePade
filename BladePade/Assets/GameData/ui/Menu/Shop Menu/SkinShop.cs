@@ -14,13 +14,15 @@ public class SkinShop : MonoBehaviour {
     public bool category=true; // true-armor false-weapon
 
     //UI
-    public Image skinPlace,armourButton,weaponButton,buyButton;
+    public Image weapon_skin_place,armourButton,weaponButton,buyButton;
     public Text gold, diamonds;
     //
 
     //Player Data Base
     public PlayerDB playerDB;
     public GUINames guiNames;
+    public UIDirector ui_director;
+    public SkinsLoader skins_loader;
    
     public info_config_scriptable_object info_Config;
 	void Start () {
@@ -44,6 +46,7 @@ public class SkinShop : MonoBehaviour {
     private void Update()
     {
         guiNames.UpdateBalance();
+        if (this.gameObject.GetComponent<Canvas>().enabled && category) ui_director.skinPreview.SetActive(true);
     }
     public void Buy(){
         if (category && (info_Config.gold >= skin[currentID].gold && info_Config.diamonds >= skin[currentID].diamonds))
@@ -80,9 +83,10 @@ public class SkinShop : MonoBehaviour {
     public void UpdateSkin(){
         if (category)
         {
+            weapon_skin_place.enabled = false;//When choosed skins weapon is disabled
             if (!info_Config.mySkins.Contains(currentID))
             {
-                skinPlace.sprite = skin[currentID].SkinPrev;
+                skins_loader.UpdateSkin(currentID);
                 gold.text = skin[currentID].gold.ToString();
                 diamonds.text = skin[currentID].diamonds.ToString();
                 NotEnoughMoneyCheck();
@@ -90,24 +94,25 @@ public class SkinShop : MonoBehaviour {
             }
             else
             {
-                
-                skinPlace.sprite = skin[currentID].SkinPrev;
+
+                skins_loader.UpdateSkin(currentID);
                 gold.text = "0";
                 diamonds.text = "0";
 
             }
             
         }else{
+            weapon_skin_place.enabled = true; //When choosed weapons weapon is enabled
             if (!info_Config.myWeapons.Contains(currentID))
             {
-                skinPlace.sprite = weapon[currentID].SkinPrev;
+                weapon_skin_place.sprite = weapon[currentID].SkinPrev;
                 gold.text = weapon[currentID].gold.ToString();
                 diamonds.text = weapon[currentID].diamonds.ToString();
                 NotEnoughMoneyCheck();
             }
             else
             {
-                skinPlace.sprite = weapon[currentID].SkinPrev;
+                weapon_skin_place.sprite = weapon[currentID].SkinPrev;
                 gold.text = "0";
                 diamonds.text = "0";
 
@@ -124,6 +129,7 @@ public class SkinShop : MonoBehaviour {
         else buyButton.color = Color.white;
     }
     public void ArmourButton(){
+        ui_director.skinPreview.SetActive(true);
         armourButton.color = new Color(0.85f, 0.85f, 0.85f);
         weaponButton.color = Color.white;
         currentID = 0;
@@ -131,6 +137,8 @@ public class SkinShop : MonoBehaviour {
         UpdateSkin();
     }
     public void WeaponButton(){
+
+        ui_director.skinPreview.SetActive(false);
         armourButton.color = Color.white;
         weaponButton.color = new Color(0.85f,0.85f,0.85f);
         currentID = 0;

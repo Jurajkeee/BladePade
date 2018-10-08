@@ -23,7 +23,7 @@
         <string name="jungles">Jungles</string>  
         <string name="temple">Temple</string> 
         <string name="caves">Caves</string> 
-        <string name="play">Play</string>>
+        <string name="play">Play</string>
 
         <string name="pause">Pause</string>  
         <string name="resume">Resume</string>  
@@ -54,7 +54,7 @@
         <string name="jungles">Джунгли</string>  
         <string name="temple">Храм</string>  
         <string name="caves">Пещеры</string> 
-        <string name="play">Играть</string>>
+        <string name="play">Играть</string>
 
         <string name="pause">Приостановлено</string>  
         <string name="resume">Продолжить</string>  
@@ -85,7 +85,8 @@
         <string name="jungles"></string>  
         <string name="temple"></string>  
         <string name="caves"></string> 
-        <string name="play"></string>>
+        <string name="play"></string>
+      
 
         <string name="pause"></string>  
         <string name="resume"></string>  

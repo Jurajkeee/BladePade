@@ -40,40 +40,7 @@ public class GUINames : MonoBehaviour
         UpdateLanguage();
 
     }
-    private void Update()
-    {
-        if (Application.platform == RuntimePlatform.Android)
-        {
-            if (File.Exists(Application.streamingAssetsPath + "/LanguageDictionary.xml"))
-            {
-                debugImg.color = new Color(0, 0, 0);
-            }
-        }
-        else if (Application.platform == RuntimePlatform.OSXEditor)
-        {
-            if (File.Exists(Application.streamingAssetsPath + "/LanguageDictionary.xml"))
-            {
-                debugImg.color = new Color(0, 173, 0);
-            }
-        }
-        else if (Application.platform == RuntimePlatform.WindowsEditor)
-        {
-            if (File.Exists(Application.streamingAssetsPath + "/LanguageDictionary.xml"))
-            {
-                debugImg.color = new Color(0, 0, 175);
-            }
 
-        }
-        else if (Application.platform == RuntimePlatform.IPhonePlayer)
-        {
-            if (File.Exists(Application.streamingAssetsPath+ "/LanguageDictionary.xml"))
-            {
-                debugImg.color = new Color(123, 123, 0);
-            }
-
-        }
-
-    }
     public void UpdateLanguage()
     {
         GetNames();
@@ -97,7 +64,7 @@ public class GUINames : MonoBehaviour
 
         currentLang = singletone.info_Config.language;
 
-        langClass = new Lang(Application.streamingAssetsPath + "/LanguageDictionary.xml", currentLang); //macbook
+        langClass = new Lang(currentLang); 
         
         //langClass = new Lang(Path.Combine(Application.dataPath, "C:/Users/po4ta/Desktop/BladePade/BladePade/Assets/Scenes/MultiLanguage/LanguageDictionary.xml"), currentLang); //PC
         skinsT.text = langClass.GetString("skins");
