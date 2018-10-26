@@ -15,7 +15,8 @@ public class GUINames : MonoBehaviour
                 graphicsT, cancelT, confirmT, musicT, 
                 soundsT,settingsT,graphicalIndicator,goldBalanceT,diamondsBalanceT
                 ,templeT,pyramidsT,junglesT,townT,caveT,playT;
-
+    [HideInInspector]
+    public string use,in_use,buy;
     public UIDirector uiDirector;
     public PlayerDB playerDb;
 
@@ -36,7 +37,7 @@ public class GUINames : MonoBehaviour
 
         uiDirector=uiDirector.GetComponent<UIDirector>();
 
-        UpdateBalance();
+        
         UpdateLanguage();
 
     }
@@ -46,7 +47,8 @@ public class GUINames : MonoBehaviour
         GetNames();
         UpdateGraphicSlider();
     }
-    public void UpdateBalance(){
+    public void UpdateBalance()
+    {
         goldBalanceT.text = singletone.gold.ToString();
         diamondsBalanceT.text = singletone.diamonds.ToString();
     }
@@ -60,6 +62,7 @@ public class GUINames : MonoBehaviour
 
     }
 
+   
     public void GetNames(){
 
         currentLang = singletone.info_Config.language;
@@ -86,7 +89,10 @@ public class GUINames : MonoBehaviour
         templeT.text = langClass.GetString("temple");
         caveT.text = langClass.GetString("caves");
         playT.text = langClass.GetString("play");
-
+        use = langClass.GetString("use");
+        in_use = langClass.GetString("in use");
+        buy = langClass.GetString("buy");
+        Debug.Log(this.name + " " + use + " " + in_use);
     }
 
 }

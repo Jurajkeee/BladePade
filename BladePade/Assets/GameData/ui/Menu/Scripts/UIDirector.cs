@@ -76,7 +76,7 @@ public class UIDirector : MonoBehaviour
     {
         #region "UIDirector"
         guiNames = guiNames.GetComponent<GUINames>();
-        guiNames.UpdateBalance();
+        
       
         shopMenu = shopMenu.GetComponent<Canvas>();
         donationShopMenu = donationShopMenu.GetComponent<Canvas>();
@@ -84,10 +84,10 @@ public class UIDirector : MonoBehaviour
         settingsMenu = settingsMenu.GetComponent<Canvas>();
 
         settingsMenu.enabled = false;
-        shopMenu.enabled = false;
+        shopMenu.gameObject.SetActive(false);
         donationShopMenu.enabled = false;
         levelMenu.enabled = false;
-        skinPreview.SetActive(false);
+        skinPreview.SetActive(true);
         #endregion
         #region "Map Window"
         //In Level Menu
@@ -147,9 +147,9 @@ public class UIDirector : MonoBehaviour
     public void ToShop()
     {
         settingsButton.enabled = !settingsButton.enabled;
-        if(skinPreview.activeSelf!=false)skinPreview.SetActive(!skinPreview.activeSelf);
-        shopMenu.enabled = !shopMenu.enabled;
+        shopMenu.gameObject.SetActive(!shopMenu.gameObject.activeSelf);
         lastMethod = ToShop;
+        GameObject.Find("Shop").GetComponent<SkinShop>().UpdateSkin();
 
     }
     public void ToDonationShop()

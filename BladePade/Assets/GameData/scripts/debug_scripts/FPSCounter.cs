@@ -26,4 +26,8 @@ public class FPSCounter : MonoBehaviour {
         bestFpsIndicator.text = BestFPS.ToString();
         lowFpsIndicator.text = LowFPS.ToString();
 	}
+    public void ClicledOnMe()
+    {
+        Debug.Log("Clicked");
+    }
 }

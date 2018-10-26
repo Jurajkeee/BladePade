@@ -20,6 +20,9 @@ using System.Xml.Serialization;
     private string path = "Assets/GameData/config/singletone/info_config/save.xml";
     string _data;
     public int gold, diamonds,current_skin,current_weapon;
+    [Header("~~~~~~~~~~~~~~~~~~~~~~Settings~~~~~~~~~~~~~~~~~~~~~~~~~~~")]
+    public bool set_up_for_menu;
+    private GUINames guinames;
 
 	private void Start () {
         info_Config = Resources.Load<info_config_scriptable_object>("InfoConfig");
@@ -37,11 +40,18 @@ using System.Xml.Serialization;
             skinsloader.weapon = current_weapon;           
             skinsloader.hand_sword.sprite = skinsloader.GetWeapon();
         }
-	}
+        if(set_up_for_menu)guinames = GameObject.Find("EventSystem").GetComponent<GUINames>();
+    }
     private void Update()
     {
         gold = info_Config.gold;
         diamonds = info_Config.diamonds;
+        UpdateBalanceAndLanguage(set_up_for_menu);
+    }
+    public void UpdateBalanceAndLanguage(bool boolean)
+    {
+        if (boolean)guinames.UpdateBalance();
+        
     }
 
     private void OnDestroy()

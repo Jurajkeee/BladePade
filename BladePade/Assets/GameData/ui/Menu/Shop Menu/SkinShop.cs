@@ -43,31 +43,32 @@ public class SkinShop : MonoBehaviour {
             UpdateSkin();
         } 
     }
-    private void Update()
-    {
-        guiNames.UpdateBalance();
-        if (this.gameObject.GetComponent<Canvas>().enabled && category) ui_director.skinPreview.SetActive(true);
-    }
+
     public void Buy(){
         if (category && (info_Config.gold >= skin[currentID].gold && info_Config.diamonds >= skin[currentID].diamonds))
         {
             if (!info_Config.mySkins.Contains(currentID))
-            {     
+            {
                 guiNames.UpdateBalance();
                 skin[currentID].SkinIsBought(playerDB);
 
                 info_Config.mySkins.Add(currentID);
                 info_Config.currentSkin = currentID;
-
+                
                 UpdateSkin();
 
-            } else info_Config.currentSkin = currentID;
+            }
+            else {
+                info_Config.currentSkin = currentID;
+                UpdateSkin();
+                Debug.Log(this.name + ": Using");
+            }
         } 
         else {}
         if(!category &&(info_Config.gold >= weapon[currentID].gold && info_Config.diamonds >= weapon[currentID].diamonds)) 
         {
             if (!info_Config.myWeapons.Contains(currentID))
-            {     
+            {
                 guiNames.UpdateBalance();
                 weapon[currentID].SkinIsBought(playerDB);
 
@@ -76,7 +77,11 @@ public class SkinShop : MonoBehaviour {
 
                 UpdateSkin();
 
-            } else info_Config.currentWeapon = currentID;
+            }
+            else {
+                info_Config.currentWeapon = currentID;
+                UpdateSkin();
+            }
         }
         else {}
     }
@@ -86,6 +91,8 @@ public class SkinShop : MonoBehaviour {
             weapon_skin_place.enabled = false;//When choosed skins weapon is disabled
             if (!info_Config.mySkins.Contains(currentID))
             {
+                buyButton.color = new Color(1, 1, 1, 1);
+                guiNames.buyT.text = guiNames.buy;
                 skins_loader.UpdateSkin(currentID);
                 gold.text = skin[currentID].gold.ToString();
                 diamonds.text = skin[currentID].diamonds.ToString();
@@ -94,17 +101,20 @@ public class SkinShop : MonoBehaviour {
             }
             else
             {
-
+                
                 skins_loader.UpdateSkin(currentID);
                 gold.text = "0";
                 diamonds.text = "0";
-
+                isAlreadyBought();
+                isAlreadyWeared();
             }
             
         }else{
             weapon_skin_place.enabled = true; //When choosed weapons weapon is enabled
             if (!info_Config.myWeapons.Contains(currentID))
             {
+                buyButton.color = new Color(1, 1, 1, 1);
+                guiNames.buyT.text = guiNames.buy;
                 weapon_skin_place.sprite = weapon[currentID].SkinPrev;
                 gold.text = weapon[currentID].gold.ToString();
                 diamonds.text = weapon[currentID].diamonds.ToString();
@@ -115,7 +125,8 @@ public class SkinShop : MonoBehaviour {
                 weapon_skin_place.sprite = weapon[currentID].SkinPrev;
                 gold.text = "0";
                 diamonds.text = "0";
-
+                isAlreadyBought();
+                isAlreadyWeared();
             }
         }
        
@@ -125,9 +136,42 @@ public class SkinShop : MonoBehaviour {
         if (info_Config.gold < skin[currentID].gold || info_Config.diamonds < skin[currentID].diamonds)
         {
             buyButton.color = new Color(1,0.5f,0.5f);
+            Debug.Log(this.name + ": Not enough money");
         }
         else buyButton.color = Color.white;
     }
+    public void isAlreadyBought()
+    {
+        if (category)
+        {
+            if (info_Config.mySkins.Contains(currentID)) { buyButton.color = new Color(1, 1, 1, 1); guiNames.buyT.text = guiNames.use;}
+        }
+        else
+        {
+            if (info_Config.myWeapons.Contains(currentID)) {buyButton.color = new Color(1, 1, 1, 1); guiNames.buyT.text = guiNames.use;}
+        }
+    }
+    public void isAlreadyWeared()
+    {
+        if (category)
+        {
+            if (currentID == info_Config.currentSkin)
+            {
+                guiNames.buyT.text = guiNames.in_use;
+                buyButton.color = new Color(1, 1, 0, 1);
+            }
+        }
+        else
+        {
+            if (currentID == info_Config.currentWeapon)
+            {
+                guiNames.buyT.text = guiNames.in_use;
+                buyButton.color = new Color(1, 1, 0, 1);
+            }
+        }
+    }
+   
+
     public void ArmourButton(){
         ui_director.skinPreview.SetActive(true);
         armourButton.color = new Color(0.85f, 0.85f, 0.85f);

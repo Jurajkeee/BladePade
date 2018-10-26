@@ -216,12 +216,12 @@ TextureImporter:
       name: spritesheet_4
       rect:
         serializedVersion: 2
-        x: 362.75092
-        y: 607.2541
-        width: 459.44684
-        height: 530.1252
+        x: 73.82739
+        y: 90.056274
+        width: 451.9088
+        height: 493.8723
       alignment: 9
-      pivot: {x: 0.39231762, y: 0.3484949}
+      pivot: {x: 0.34115866, y: 0.34005496}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
