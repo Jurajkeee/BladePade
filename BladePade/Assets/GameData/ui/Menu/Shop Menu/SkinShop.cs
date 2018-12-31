@@ -11,7 +11,7 @@ public class SkinShop : MonoBehaviour {
     public Sprite[] weaponPrev = new Sprite[7];
 
     public int currentID;
-    public bool category=true; // true-armor false-weapon
+    public bool currentShopCategory=true; // true-armor false-weapon
 
     //UI
     public Image weapon_skin_place,armourButton,weaponButton,buyButton;
@@ -45,48 +45,55 @@ public class SkinShop : MonoBehaviour {
     }
 
     public void Buy(){
-        if (category && (info_Config.gold >= skin[currentID].gold && info_Config.diamonds >= skin[currentID].diamonds))
+        Debug.Log("Case 0.1");
+        if (currentShopCategory && (info_Config.gold >= skin[currentID].gold && info_Config.diamonds >= skin[currentID].diamonds))
         {
+            Debug.Log("Case 1.0");
             if (!info_Config.mySkins.Contains(currentID))
             {
                 guiNames.UpdateBalance();
-                skin[currentID].SkinIsBought(playerDB);
+                skin[currentID].BuySkin(playerDB);
 
                 info_Config.mySkins.Add(currentID);
                 info_Config.currentSkin = currentID;
                 
                 UpdateSkin();
+                Debug.Log("Case 1.1");
 
             }
             else {
                 info_Config.currentSkin = currentID;
                 UpdateSkin();
                 Debug.Log(this.name + ": Using");
+                Debug.Log("Case 1.2");
             }
         } 
-        else {}
-        if(!category &&(info_Config.gold >= weapon[currentID].gold && info_Config.diamonds >= weapon[currentID].diamonds)) 
+        else { Debug.Log("Case 1.3"); }
+        if(!currentShopCategory &&(info_Config.gold >= weapon[currentID].gold && info_Config.diamonds >= weapon[currentID].diamonds)) 
         {
+            Debug.Log("Case 2.0");
             if (!info_Config.myWeapons.Contains(currentID))
             {
                 guiNames.UpdateBalance();
-                weapon[currentID].SkinIsBought(playerDB);
+                weapon[currentID].BuySkin(playerDB);
 
                 info_Config.myWeapons.Add(currentID);
                 info_Config.currentWeapon = currentID;
 
                 UpdateSkin();
+                Debug.Log("Case 2.1");
 
             }
             else {
                 info_Config.currentWeapon = currentID;
                 UpdateSkin();
+                Debug.Log("Case 2.2");
             }
         }
-        else {}
+        else { Debug.Log("Case 2.3"); }
     }
     public void UpdateSkin(){
-        if (category)
+        if (currentShopCategory)
         {
             weapon_skin_place.enabled = false;//When choosed skins weapon is disabled
             if (!info_Config.mySkins.Contains(currentID))
@@ -109,7 +116,7 @@ public class SkinShop : MonoBehaviour {
                 isAlreadyWeared();
             }
             
-        }else{
+        } else{
             weapon_skin_place.enabled = true; //When choosed weapons weapon is enabled
             if (!info_Config.myWeapons.Contains(currentID))
             {
@@ -142,7 +149,7 @@ public class SkinShop : MonoBehaviour {
     }
     public void isAlreadyBought()
     {
-        if (category)
+        if (currentShopCategory)
         {
             if (info_Config.mySkins.Contains(currentID)) { buyButton.color = new Color(1, 1, 1, 1); guiNames.buyT.text = guiNames.use;}
         }
@@ -153,7 +160,7 @@ public class SkinShop : MonoBehaviour {
     }
     public void isAlreadyWeared()
     {
-        if (category)
+        if (currentShopCategory)
         {
             if (currentID == info_Config.currentSkin)
             {
@@ -177,7 +184,7 @@ public class SkinShop : MonoBehaviour {
         armourButton.color = new Color(0.85f, 0.85f, 0.85f);
         weaponButton.color = Color.white;
         currentID = 0;
-        category = true;
+        currentShopCategory = true;
         UpdateSkin();
     }
     public void WeaponButton(){
@@ -186,7 +193,7 @@ public class SkinShop : MonoBehaviour {
         armourButton.color = Color.white;
         weaponButton.color = new Color(0.85f,0.85f,0.85f);
         currentID = 0;
-        category = false;
+        currentShopCategory = false;
         UpdateSkin();
     }
  

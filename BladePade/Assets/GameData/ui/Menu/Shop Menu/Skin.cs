@@ -23,11 +23,11 @@ public class Skin:ScriptableObject
     public Sprite right_leg;
     public Sprite hat;
 
-    public void SkinIsBought(PlayerDB playerDB)
+    public void BuySkin(PlayerDB playerDB)
     {
         info_Config = Resources.Load<info_config_scriptable_object>("InfoConfig");
         playerDB.TakeGold(gold);
-        playerDB.diamonds -= diamonds;
+        playerDB.TakeDiamonds(diamonds);
         
         isBought = true;
     } 

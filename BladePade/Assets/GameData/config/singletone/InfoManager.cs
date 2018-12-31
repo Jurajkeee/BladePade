@@ -22,6 +22,7 @@ using System.Xml.Serialization;
     public int gold, diamonds,current_skin,current_weapon;
     [Header("~~~~~~~~~~~~~~~~~~~~~~Settings~~~~~~~~~~~~~~~~~~~~~~~~~~~")]
     public bool set_up_for_menu;
+    [SerializeField]
     private GUINames guinames;
 
 	private void Start () {
@@ -40,7 +41,7 @@ using System.Xml.Serialization;
             skinsloader.weapon = current_weapon;           
             skinsloader.hand_sword.sprite = skinsloader.GetWeapon();
         }
-        if(set_up_for_menu)guinames = GameObject.Find("EventSystem").GetComponent<GUINames>();
+        //if(set_up_for_menu)guinames = GameObject.Find("EventSystem").GetComponent<GUINames>();
     }
     private void Update()
     {
