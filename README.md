@@ -28,6 +28,6 @@ Graphic like in rayman.
 ### Setting:  
 Like in Ori and Rayman.
 
-#### Scheduled release: 29.04.2018
+#### Scheduled release: 31.01.2019
 
 
