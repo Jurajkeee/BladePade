@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/GameData/ui/Menu/Menu.unity
+- path: Assets/GameData/levels/chapther_1/chapte1_subchapter 1/levels/C1S1L1.unity
   isLoaded: 1
   isActive: 1

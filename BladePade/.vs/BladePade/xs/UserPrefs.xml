@@ -1,9 +1,10 @@
 ﻿<Properties StartupConfiguration="{952C13CE-80C9-3899-E698-C96B04048146}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/GameData/scripts/project_scripts/UIDirector.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/GameData/scripts/project_scripts/GUIDirector.cs">
     <Files>
-      <File FileName="Assets/GameData/scripts/project_scripts/UIAnimationCoroutines.cs" Line="28" Column="1" />
-      <File FileName="Assets/GameData/scripts/project_scripts/UIDirector.cs" Line="169" Column="44" />
-      <File FileName="Assets/GameData/config/singletone/InfoManager.cs" Line="71" Column="1" />
+      <File FileName="Assets/GameData/scripts/project_scripts/LevelRecorder.cs" Line="41" Column="37" />
+      <File FileName="Assets/GameData/scripts/project_scripts/GUIDirector.cs" Line="133" Column="17" />
+      <File FileName="Assets/GameData/scripts/project_scripts/Extensions.cs" Line="12" Column="26" />
+      <File FileName="Assets/GameData/scripts/debug_scripts/GOTOMenu.cs" Line="10" Column="31" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.BladePade PreferredExecutionTarget="Unity.Editor" />
