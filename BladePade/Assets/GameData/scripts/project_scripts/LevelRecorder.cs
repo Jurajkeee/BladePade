@@ -27,20 +27,23 @@ public class LevelRecorder : MonoBehaviour {
     public bool useTimeMultiplier;
     public bool useBladeBonus;
     public int coins;
+    public int diamonds;
 
     public void Finished(){
-        //HERE
-        if (levelstats.stars < starsCollected) levelstats.stars = starsCollected;
-        finishTime = time;
-        if (levelstats.bestTime > finishTime || levelstats.bestTime == 0) { levelstats.bestTime = finishTime; }
-        //SAVE THIS
-
         info_Config = Resources.Load<info_config_scriptable_object>("InfoConfig");
         if (info_Config.currentLevel == levelstats.levelID) info_Config.currentLevel++;
 
-        coins = MoneyGiver.CalculateCurrency(this, useTimeMultiplier, useBladeBonus);
+        MoneyGiver.CalculateAwards(this);
+
+        if (levelstats.stars < starsCollected) levelstats.stars = starsCollected;
+        finishTime = time;
+        if (levelstats.bestTime > finishTime || levelstats.bestTime == 0) { levelstats.bestTime = finishTime; }
+
         info_Config.gold += coins;
+        info_Config.diamonds += diamonds;
         levelstats.multiplier= 1;
+
+        levelstats.isCompleted = true;
        
         director.FinishWindow();
 

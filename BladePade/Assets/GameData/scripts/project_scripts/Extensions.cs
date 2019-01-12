@@ -7,10 +7,11 @@ public class Extensions : MonoBehaviour {
 
     public static IEnumerator LoadAfterTimer(int levelID, int loadingScreenID)
     {
-        
         LoadScene(loadingScreenID, LoadSceneMode.Additive);
         yield return null;
         LoadScene(levelID);
+        //We have to be sure that time after pausing was resumed
+        Time.timeScale = 1.0f;
     }
     public static void LoadScene(int ID)
     {

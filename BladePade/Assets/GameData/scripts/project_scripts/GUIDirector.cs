@@ -23,7 +23,7 @@ public class GUIDirector : MonoBehaviour
     public LevelRecorder levelRecorder;
     public GameObject finishWindow;
     public Image[] stars = new Image[3];
-    public Text finishTime, goldT, usedBladesT;
+    public Text finishTime, goldT, usedBladesT, diamondsT;
 
     [Header("GameOverWindows")]
     [Space(10)]
@@ -121,6 +121,7 @@ public class GUIDirector : MonoBehaviour
         }
         finishTime.text = levelRecorder.ConvertToNormalTimer(levelRecorder.finishTime);
         goldT.text = levelRecorder.coins.ToString();
+        diamondsT.text = levelRecorder.diamonds.ToString();
         usedBladesT.text = levelRecorder.usedBlades.ToString();
         //crystals
     }
