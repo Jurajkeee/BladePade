@@ -39,6 +39,4 @@ public class Level : ScriptableObject
         Debug.Log(bestTime);
     }
 
-    
-
 }

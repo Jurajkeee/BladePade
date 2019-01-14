@@ -19,5 +19,16 @@ public class info_config_scriptable_object : ScriptableObject {
     public int sounds;
     public string language;
     public int graphics;
+    [Space(10)]
+    public List<int> LevelsStarsHashtable = new List<int>(20);
+    public List<float> BestTimeHashtable = new List<float>(20);
+     
+    public void AddLevel(Level level)
+    {
+        Debug.Log("1.1");
+        LevelsStarsHashtable[level.levelID] =level.stars;
+        BestTimeHashtable[level.levelID]= level.bestTime;
+        Debug.Log(level.levelID+"Level added");
+    }
 
 }

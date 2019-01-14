@@ -71,7 +71,7 @@ f61c0793411f10cf5fbfa1473fef5ef2 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 ff848a94620099ac44d87a122a0263c3 Assembly-CSharp.dll:Tayx.Graphy.GraphyDebugger
 d905b5cdc0c9353bb9c69be712567905 Assembly-CSharp.dll:.Ferr2DT_PathTerrain
 58bde8f336436c359d8d7e97e336b318 Assembly-CSharp.dll:.ControllerInsector
-3a0dcf6071a3c9ac69bad347dbf9c0c6 Assembly-CSharp.dll:.InfoManager
+fc2b96d2d6744fde975117661c42fbde Assembly-CSharp.dll:.InfoManager
 a35dc9cca2faebc5f5f1aeb9e8e47bbe UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
 49cd62a578efc0a599b810a2b66cd49c UnityEngine.UI.dll:UnityEngine.UI.Button
@@ -174,7 +174,7 @@ ba85d5187837d098a6f2564896d15183 Assembly-CSharp-firstpass.dll:IngameDebugConsol
 542530e11789dc403468901628b3f4a8 Assembly-CSharp.dll:Anima2D.Bone2D
 6458433475be65e3adb6ff5ea01edab7 Assembly-CSharp.dll:Tayx.Graphy.Ram.G_RamText
 4e64a8439d3f2714054286cecee27cab Assembly-CSharp.dll:UnityEngine.Tilemaps.PipelineTile
-22420d04bbf08d212d05945f395d7a83 Assembly-CSharp.dll:.info_config_scriptable_object
+0a5ef64d5858b130329d838a548f51da Assembly-CSharp.dll:.info_config_scriptable_object
 b2010d61b8107246f02b553c0a11575d Assembly-CSharp.dll:Ferr.Example.BlobShadow
 68a6470d9b146708efff0ffee7d49c66 Assembly-CSharp.dll:.SpriteCycle
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Ferr.CameraShake

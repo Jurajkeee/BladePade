@@ -44,6 +44,8 @@ public class LevelRecorder : MonoBehaviour {
         levelstats.multiplier= 1;
 
         levelstats.isCompleted = true;
+
+        info_Config.AddLevel(levelstats);
        
         director.FinishWindow();
 

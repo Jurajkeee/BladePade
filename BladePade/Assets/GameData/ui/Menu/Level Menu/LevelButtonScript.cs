@@ -22,6 +22,9 @@ public class LevelButtonScript : MonoBehaviour {
 	}
     public void UpdateStats()
     {
+        level.bestTime = (float)info_Config.BestTimeHashtable[level.levelID];
+        level.stars = (int)info_Config.LevelsStarsHashtable[level.levelID];
+
         for(int i=0; i<level.stars; i++)
         {
             stars[i].enabled = true;

@@ -1,11 +1,12 @@
 ﻿<Properties StartupConfiguration="{952C13CE-80C9-3899-E698-C96B04048146}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/GameData/scripts/project_scripts/Extensions.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/GameData/config/singletone/info_config/info_config_scriptable_object.cs">
     <Files>
-      <File FileName="Assets/GameData/scripts/project_scripts/LevelRecorder.cs" Line="32" Column="28" />
-      <File FileName="Assets/GameData/scripts/project_scripts/GUIDirector.cs" Line="124" Column="60" />
-      <File FileName="Assets/GameData/scripts/project_scripts/Extensions.cs" Line="9" Column="6" />
-      <File FileName="Assets/GameData/scripts/project_scripts/MoneyGiver.cs" Line="38" Column="58" />
-      <File FileName="Assets/GameData/scripts/scriptable_objects/Level.cs" Line="28" Column="13" />
+      <File FileName="Assets/GameData/scripts/scriptable_objects/Level.cs" Line="41" Column="1" />
+      <File FileName="Assets/GameData/config/singletone/InfoManager.cs" Line="104" Column="11" />
+      <File FileName="Assets/GameData/scripts/project_scripts/UIDirector.cs" Line="303" Column="39" />
+      <File FileName="Assets/GameData/ui/Menu/Level Menu/LevelButtonScript.cs" Line="25" Column="26" />
+      <File FileName="Assets/GameData/scripts/project_scripts/LevelRecorder.cs" Line="48" Column="26" />
+      <File FileName="Assets/GameData/config/singletone/info_config/info_config_scriptable_object.cs" Line="14" Column="50" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.BladePade PreferredExecutionTarget="Unity.Editor" />

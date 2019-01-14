@@ -17,16 +17,20 @@ using System.Xml.Serialization;
     
     public info_config_scriptable_object info_Config;
     public XmlDocument xml;
-    private string path = "Assets/GameData/config/singletone/info_config/save.xml";
+    //private string path = "Assets/GameData/config/singletone/info_config/save.xml";
     string _data;
     public int gold, diamonds,current_skin,current_weapon;
     [Header("~~~~~~~~~~~~~~~~~~~~~~Settings~~~~~~~~~~~~~~~~~~~~~~~~~~~")]
     public bool set_up_for_menu;
     [SerializeField]
     private GUINames guinames;
+    public List<Level> loadedLevelsFromConfig;
 
 	private void Start () {
-        info_Config = Resources.Load<info_config_scriptable_object>("InfoConfig");
+        while (info_Config == null)
+        {
+            info_Config = Resources.Load<info_config_scriptable_object>("InfoConfig");
+        }
         LoadXML();
         LoadData();
 
@@ -41,7 +45,7 @@ using System.Xml.Serialization;
             skinsloader.weapon = current_weapon;           
             skinsloader.hand_sword.sprite = skinsloader.GetWeapon();
         }
-        //if(set_up_for_menu)guinames = GameObject.Find("EventSystem").GetComponent<GUINames>();
+        //if (!set_up_for_menu) { }
     }
     private void Update()
     {
