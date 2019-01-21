@@ -30,4 +30,17 @@ public class Extensions : MonoBehaviour {
              yield return null;
          }
     }
+
+    public static IEnumerator DelayForSeconds(float time,  bool finished)
+    {
+        finished = true;
+        yield return new WaitForSeconds(time);
+
+    }
+    public static void FindPlayerStats(ref PlayerStats playerStats)
+    {
+        playerStats = GameObject.Find("EventSystem").GetComponent<PlayerStats>();
+        if (playerStats == null)
+            FindPlayerStats(ref playerStats);
+    }
 }

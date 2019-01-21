@@ -79,22 +79,22 @@ public class SkinsLoader : MonoBehaviour {
             switch (weapon)
             {
                 case 0:
-                    Debug.Log("Skins Loader: Loading Skin " + standart_sword);
+                    //Debug.Log("Skins Loader: Loading Skin " + standart_sword);
                     return standart_sword.SkinPrev;                   
                 case 1:
-                    Debug.Log("Skins Loader: Loading Skin " + sword_very_sharp);
+                    //Debug.Log("Skins Loader: Loading Skin " + sword_very_sharp);
                     return sword_very_sharp.SkinPrev;                  
                 case 2:
-                    Debug.Log("Skins Loader: Loading Skin " + sword_big);
+                    //Debug.Log("Skins Loader: Loading Skin " + sword_big);
                     return sword_big.SkinPrev;                   
                 case 3:
-                    Debug.Log("Skins Loader: Loading Skin " + sword_broked);
+                    //Debug.Log("Skins Loader: Loading Skin " + sword_broked);
                     return sword_broked.SkinPrev;                   
                 case 4:
-                    Debug.Log("Skins Loader: Loading Skin " + sword_sci_fi);
+                    //Debug.Log("Skins Loader: Loading Skin " + sword_sci_fi);
                     return sword_sci_fi.SkinPrev;                    
                 default:
-                    Debug.LogError("Skin not found");
+                    //Debug.LogError("Skin not found");
                     return null;
             }
         }
@@ -120,14 +120,14 @@ public class SkinsLoader : MonoBehaviour {
                 SetSkinsToSpriteMesh(sci_fi_ninja_skin);
                 break;
             default:
-                Debug.LogError("Skin not found");
+                //Debug.LogError("Skin not found");
                 break;
 
         }
     }
     void SetSkinsToSpriteMesh(Skin skin)
     {
-        Debug.Log("Skins Loader: Loading Skin " + skin);
+        //Debug.Log("Skins Loader: Loading Skin " + skin);
         core.sprite = skin.core;
         head.sprite = skin.head;
         left_arm.sprite = skin.left_arm;
@@ -138,14 +138,14 @@ public class SkinsLoader : MonoBehaviour {
         {
             hat_Go.SetActive(true);
             hat.sprite = skin.hat;
-            Debug.Log("SkinsLoader: Hat loaded");
+            //Debug.Log("SkinsLoader: Hat loaded");
         }
         else
         {
             hat_Go.SetActive(false);
-            Debug.Log("SkinsLoader:" + skin + " has no hat");
+            //Debug.Log("SkinsLoader:" + skin + " has no hat");
         }
-        Debug.Log("Skins Loader: Skin had to be loaded");
+        //Debug.Log("Skins Loader: Skin had to be loaded");
     }
 
 }

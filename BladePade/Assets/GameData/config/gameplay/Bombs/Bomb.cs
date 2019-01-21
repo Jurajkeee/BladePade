@@ -11,7 +11,7 @@ public class Bomb : MonoBehaviour {
     private void Start()
     {
         StartCoroutine(Explode(delayBeforeExplosion));
-
+        //Extensions.FindPlayerStats(ref playerMethodsAssembly);
     }
 
     void OnTriggerStay2D(Collider2D col)
