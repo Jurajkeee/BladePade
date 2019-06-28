@@ -1,7 +1,7 @@
 ﻿<Properties StartupConfiguration="{952C13CE-80C9-3899-E698-C96B04048146}|">
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/GameData/scripts/project_scripts/PlayerControl.cs">
     <Files>
-      <File FileName="Assets/GameData/scripts/project_scripts/PlayerControl.cs" Line="109" Column="13" />
+      <File FileName="Assets/GameData/scripts/project_scripts/PlayerControl.cs" Line="109" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.BladePade PreferredExecutionTarget="Unity.Editor" />
